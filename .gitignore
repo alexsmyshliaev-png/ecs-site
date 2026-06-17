@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Editor / agent
+.claude/
+
+# Python backend
+__pycache__/
+*.pyc
+backend/.env
+backend/*.db
+backend/.venv/
+.venv/
+
+# Сгенерированная «пересылаемая» сборка
+dist/
+/ЕЦС-сайт-демо/
+/ЕЦС-сайт-демо.zip
+
+# Внутренние материалы (не публиковать)
+/ЕЦС — Руководство по бренду.pdf
+frontend/assets/img/social media icons/Apple_App_Icon_Light_2026.png

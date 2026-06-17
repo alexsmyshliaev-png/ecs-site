@@ -1,0 +1,86 @@
+/* Дизайн-токены бренда ЕЦС: цвета, радиусы, тени, темы.
+   Источник: ЕЦС — Руководство по бренду.pdf */
+/* ============================================================
+   ЕЦС — Единый центр страхования · redesign
+   Token-driven. Three art directions via [data-theme].
+   ============================================================ */
+
+:root {
+  /* brand reds */
+  --red: #e60023;
+  --red-deep: #d0222c;
+  --red-700: #b3001c;
+
+  /* themable tokens (defaults = "clean") */
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #f1f1f3;
+  --ink: #1a1a1a;
+  --ink-2: #444444;
+  --muted: #767676;
+  --border: #ececee;
+  --border-strong: #dededf;
+  --accent: var(--red);
+  --on-accent: #ffffff;
+
+  /* dark feature surface (used in all themes for the photo/dark cards) */
+  --feature-bg: #232325;
+  --feature-ink: #ffffff;
+  --feature-muted: #b9b9bd;
+
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(16,16,18,.05), 0 1px 1px rgba(16,16,18,.04);
+  --shadow-md: 0 6px 16px rgba(16,16,18,.07), 0 2px 5px rgba(16,16,18,.05);
+  --shadow-lg: 0 24px 60px rgba(16,16,18,.12), 0 8px 18px rgba(16,16,18,.06);
+  --shadow-accent: 0 14px 34px rgba(230,0,35,.28);
+
+  --maxw: 1240px;
+  --gut: 32px;
+  --ring: 0 0 0 4px rgba(230,0,35,.16);
+
+  --ff: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --border-w: 1px;
+}
+
+/* ---------- Direction 2: Контраст (editorial / bold) ---------- */
+:root[data-theme="bold"] {
+  --bg: #f3f1ee;
+  --surface: #ffffff;
+  --surface-2: #eceae6;
+  --ink: #141414;
+  --ink-2: #3a3a3a;
+  --muted: #6c6862;
+  --border: #1414140f;
+  --border-strong: #14141422;
+  --radius: 12px;
+  --radius-sm: 9px;
+  --border-w: 1.5px;
+  --shadow-sm: 0 1px 0 rgba(20,20,20,.06);
+  --shadow-md: 0 2px 0 rgba(20,20,20,.08);
+  --shadow-lg: 10px 12px 0 rgba(20,20,20,.10);
+  --feature-bg: #161616;
+}
+
+/* ---------- Direction 3: Тёмный (premium dark, пастельный графит) ---------- */
+:root[data-theme="dark"] {
+  --bg: #2a2a31;
+  --surface: #3e3e46;
+  --surface-2: #47474f;
+  --ink: #f4f4f5;
+  --ink-2: #d8d8dc;
+  --muted: #a9a9b1;
+  --border: #4b4b53;
+  --border-strong: #5a5a62;
+  --on-accent: #ffffff;
+  --feature-bg: #47474f;
+  --feature-muted: #d3d3da;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.25);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.28);
+  --shadow-lg: 0 30px 70px rgba(0,0,0,.35);
+  --shadow-accent: 0 14px 40px rgba(230,0,35,.35);
+  --ring: 0 0 0 4px rgba(230,0,35,.3);
+}
+

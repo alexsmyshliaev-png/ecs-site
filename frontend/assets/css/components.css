@@ -82,7 +82,17 @@
 .hero__contact:hover { background: var(--surface-2); }
 .hero__contact-logo { width: 38px; height: 38px; display: block; }
 /* ряд иконок-мессенджеров без бара (страница «Офис») */
-.hero__socials-row { display: flex; gap: 10px; margin-top: 20px; }
+.hero__socials-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+/* На узких экранах бар не помещается в строку (иконки + nowrap-кнопка
+   шире ~450px и распирают страницу) — складываем в столбик. */
+@media (max-width: 540px) {
+  .hero__bar { flex-direction: column; align-items: stretch; }
+  .hero__bar-socials {
+    justify-content: center; padding: 10px;
+    border-right: none; border-bottom: var(--border-w) solid var(--border);
+  }
+  .hero__bar-toggle { min-height: 56px; }
+}
 
 /* Calculator card */
 .calc {

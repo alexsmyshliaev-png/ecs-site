@@ -9,13 +9,16 @@
 }
 .hero__grid--calc {
   grid-template-areas: "copy calc" "actions calc";
+  /* верхняя строка — по тексту, нижняя забирает остаток высоты калькулятора,
+     чтобы кнопки прижались к тексту, а не уезжали в середину */
+  grid-template-rows: min-content 1fr;
   align-items: start; row-gap: 0;
 }
 .hero__grid--calc .hero__copy { grid-area: copy; }
 .hero__grid--calc .hero__copy h1 { font-size: clamp(46px, 5.6vw, 76px); }
 .hero__grid--calc .calc,
-.hero__grid--calc .calc-frame { grid-area: calc; align-self: center; }
-.hero__grid--calc .hero__actions { grid-area: actions; }
+.hero__grid--calc .calc-frame { grid-area: calc; align-self: start; }
+.hero__grid--calc .hero__actions { grid-area: actions; align-self: start; }
 .hero__grid--calc .hero__trust { margin-top: 32px; }
 /* заголовок и лид в колонке — слева; ссылки и статистика — по центру */
 .hero__grid .hero__lead { margin-left: 0; margin-right: 0; }
@@ -422,7 +425,7 @@
   .hero--page .hero__grid,
   .hero__grid--wide { grid-template-columns: 1fr; gap: 36px; }
   /* мобильный порядок: заголовок → калькулятор → кнопки и статистика */
-  .hero__grid--calc { grid-template-areas: "copy" "calc" "actions"; row-gap: 28px; }
+  .hero__grid--calc { grid-template-areas: "copy" "calc" "actions"; grid-template-rows: auto; row-gap: 28px; }
   .hero__grid--calc .calc,
   .hero__grid--calc .calc-frame { max-width: 560px; margin: 0 auto; width: 100%; }
   /* подстраницы и travel: панель/калькулятор центрируем при сужении */

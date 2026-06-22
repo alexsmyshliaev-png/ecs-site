@@ -62,7 +62,7 @@
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_hero_kasko">Получить расчёт</a>
           <a class="btn btn--ghost btn--lg" href="office.html" data-track="cta_hero_office">Зайти на кофе</a>
-          <a class="btn btn--ghost btn--lg" href="#" data-modal="cheaper" data-track="cta_hero_cheaper">Сравнить цену</a>
+          <a class="btn btn--ghost btn--lg" href="#" data-modal="cheaper" data-track="cta_hero_cheaper">Проверить выгоду</a>
         </div>
         <div class="hero__bar">
           <span class="hero__bar-socials">
@@ -76,10 +76,77 @@
               <img class="hero__contact-logo" src="assets/img/social-icons/max.svg" alt="MAX" width="38" height="38">
             </a>
           </span>
-          <button class="hero__bar-toggle" type="button" data-toggle="raschet-info" aria-expanded="false" aria-controls="raschet-info" data-track="cta_raschet_info">
+          <button class="hero__bar-toggle" type="button" data-toggle="raschet-info" data-noscroll aria-expanded="false" aria-controls="raschet-info" data-track="cta_raschet_info">
             Рассчитать в мессенджере
             <svg class="hero__bar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
+        </div>
+        <div id="raschet-info" class="raschet-inline" hidden>
+          <div class="s-head reveal">
+                  <span class="eyebrow">Считаем честно</span>
+                </div>
+          
+                <div class="send-acc reveal">
+                  <div class="acc">
+                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_how_to_send">
+                      <span>Как прислать информацию</span>
+                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </button>
+                    <div class="acc__body">
+                      <div class="acc__inner">
+                        <div class="steps">
+                          <article class="step">
+                            <h3><span class="step__num">1</span> Фото документов</h3>
+                            <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
+                          </article>
+                          <article class="step">
+                            <h3><span class="step__num">2</span> Аудио-сообщение</h3>
+                            <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
+                          </article>
+                          <article class="step">
+                            <h3><span class="step__num">3</span> Текстом в сообщении</h3>
+                            <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
+                          </article>
+                        </div>
+                        <div class="send-note">
+                          <span class="send-note__tag">Для вашего удобства</span>
+                          <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
+                          <a class="btn btn--primary" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_send_list">Получить список</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="acc">
+                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
+                      <span>Что прислать для расчёта КАСКО</span>
+                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </button>
+                    <div class="acc__body">
+                      <div class="acc__inner">
+                        <div class="steps">
+                          <article class="step">
+                            <h3><span class="step__num">1</span> Предыдущий полис</h3>
+                            <p>Если уже страховали этот автомобиль по КАСКО — в полисе есть все нужные данные.</p>
+                          </article>
+                          <article class="step">
+                            <h3><span class="step__num">2</span> Данные авто и водителей</h3>
+                            <p>Марка, модель, год выпуска и пробег; кто будет за рулём и их водительский стаж.</p>
+                          </article>
+                          <article class="step">
+                            <h3><span class="step__num">3</span> Комплект документов</h3>
+                            <ul class="send-docs">
+                              <li>СТС или ПТС</li>
+                              <li>Водительские удостоверения всех допущенных к управлению</li>
+                              <li>Паспорт страхователя</li>
+                              <li>Если автомобиль в кредите или залоге — название банка</li>
+                            </ul>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
         </div>
       </div>
 
@@ -96,78 +163,7 @@
     </div>
   </section>
 
-  <!-- ===================== КАК ПРИСЛАТЬ ДАННЫЕ (раскрывается кнопкой) ===================== -->
-  <section class="section" id="raschet-info" hidden>
-    <div class="wrap">
-      <div class="s-head reveal">
-        <span class="eyebrow">Считаем честно</span>
-      </div>
-
-      <div class="send-acc reveal">
-        <div class="acc">
-          <button class="acc__head" type="button" aria-expanded="false" data-track="acc_how_to_send">
-            <span>Как прислать информацию</span>
-            <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-          </button>
-          <div class="acc__body">
-            <div class="acc__inner">
-              <div class="steps">
-                <article class="step">
-                  <h3><span class="step__num">1</span> Фото документов</h3>
-                  <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
-                </article>
-                <article class="step">
-                  <h3><span class="step__num">2</span> Аудио-сообщение</h3>
-                  <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
-                </article>
-                <article class="step">
-                  <h3><span class="step__num">3</span> Текстом в сообщении</h3>
-                  <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
-                </article>
-              </div>
-              <div class="send-note">
-                <span class="send-note__tag">Для вашего удобства</span>
-                <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
-                <a class="btn btn--primary" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_send_list">Получить список</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="acc">
-          <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
-            <span>Что прислать для расчёта КАСКО</span>
-            <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-          </button>
-          <div class="acc__body">
-            <div class="acc__inner">
-              <div class="steps">
-                <article class="step">
-                  <h3><span class="step__num">1</span> Предыдущий полис</h3>
-                  <p>Если уже страховали этот автомобиль по КАСКО — в полисе есть все нужные данные.</p>
-                </article>
-                <article class="step">
-                  <h3><span class="step__num">2</span> Данные авто и водителей</h3>
-                  <p>Марка, модель, год выпуска и пробег; кто будет за рулём и их водительский стаж.</p>
-                </article>
-                <article class="step">
-                  <h3><span class="step__num">3</span> Комплект документов</h3>
-                  <ul class="send-docs">
-                    <li>СТС или ПТС</li>
-                    <li>Водительские удостоверения всех допущенных к управлению</li>
-                    <li>Паспорт страхователя</li>
-                    <li>Если автомобиль в кредите или залоге — название банка</li>
-                  </ul>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
+<section class="section">
     <div class="wrap">
       <div class="s-head reveal">
         <span class="eyebrow">Что покрывает</span>
@@ -399,7 +395,7 @@
           <div class="field field--wide"><label for="cm-comment">Комментарий</label><textarea id="cm-comment" name="comment" placeholder="Кто посчитал и на каких условиях. Сам расчёт можно прислать в мессенджер."></textarea></div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
-        <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
+        <button class="btn btn--primary lead__submit" type="submit">Проверить выгоду</button>
       </form>
       <div class="lead__done">
         <div class="ok-ic">✓</div>

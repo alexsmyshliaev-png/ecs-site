@@ -19,7 +19,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 
 # страницы, куда разносим общие блоки (index.html — источник, его не трогаем)
 PAGES = ["kasko.html", "property.html", "travel.html",
-         "business.html", "office.html", "privacy.html"]
+         "business.html", "office.html", "privacy.html", "insurers.html"]
 
 FOOTER_START = "<!-- ===================== FOOTER"
 FOOTER_END = '<script src="assets/js/config.js">'

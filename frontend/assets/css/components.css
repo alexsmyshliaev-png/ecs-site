@@ -649,8 +649,8 @@
 .biz-card::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--accent); transition: width .3s ease; }
 .biz-card:hover { background: var(--surface-2); }
 .biz-card:hover::before { width: 100%; }
-.biz-card .num { font-size: 13px; font-weight: 800; letter-spacing: .16em; color: var(--accent); }
-.biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 16px; letter-spacing: -.01em; }
+.biz-card .num { display: block; font-size: 38px; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: var(--accent); }
+.biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 14px; letter-spacing: -.01em; }
 .biz-card p { color: var(--muted); font-size: 14.5px; margin-top: 11px; line-height: 1.6; }
 
 /* процесс — крупные пронумерованные шаги с акцентной чертой */
@@ -675,3 +675,35 @@
   .biz-services, .biz-process { grid-template-columns: 1fr; }
   #ymap, .map-box .ph { height: 360px; min-height: 360px; }
 }
+
+/* ============================================================
+   Страница «Страховые компании» (insurers.html)
+   ============================================================ */
+.ins-title { font-size: clamp(30px, 4vw, 46px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; margin: 14px 0 0; }
+.ins-intro { color: var(--ink-2); font-size: 17px; line-height: 1.6; max-width: 720px; margin: 14px 0 0; }
+.ins-callout {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 18px;
+  margin: 28px 0 34px; padding: 22px 26px;
+  background: var(--surface-2); border: var(--border-w) solid var(--border);
+  border-left: 4px solid var(--accent); border-radius: var(--radius-sm);
+}
+.ins-callout p { flex: 1 1 320px; font-size: 15.5px; color: var(--ink-2); line-height: 1.55; margin: 0; }
+.ins-callout .btn { flex: 0 0 auto; }
+.ins-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ins-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 20px 22px; border-radius: var(--radius-sm);
+  background: var(--surface); border: var(--border-w) solid var(--border);
+  box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.ins-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.ins-card__name { font-weight: 700; font-size: 16px; color: var(--ink); }
+.ins-card__go { font-size: 13.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+.ins-note { margin-top: 28px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+@media (max-width: 900px) { .ins-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .ins-grid { grid-template-columns: 1fr; } }
+
+/* ссылка-действие внутри шага памятки «что делать при ДТП» */
+.step__link { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); line-height: 1.4; }
+.step__link svg { width: 17px; height: 17px; flex: 0 0 17px; }
+.step__link:hover { text-decoration: underline; }

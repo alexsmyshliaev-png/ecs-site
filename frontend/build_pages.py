@@ -18,7 +18,7 @@ import io, os, re
 BASE = os.path.dirname(os.path.abspath(__file__))
 
 # страницы, куда разносим общие блоки (index.html — источник, его не трогаем)
-PAGES = ["kasko.html", "property.html", "travel.html",
+PAGES = ["osago.html", "kasko.html", "property.html", "travel.html",
          "business.html", "office.html", "privacy.html", "insurers.html"]
 
 FOOTER_START = "<!-- ===================== FOOTER"
@@ -61,6 +61,9 @@ footer_src = footer_region(src)
 header_base = header_src.replace(' class="is-active"', "")
 mobnav_base = mobnav_src.replace(' class="is-active"', "")
 
+# data-product модалки в эталоне (index) — его подменяем на продукт каждой страницы
+TMPL_PRODUCT = modal_product(footer_src)
+
 for fname in PAGES:
     path = os.path.join(BASE, fname)
     if not os.path.exists(path):
@@ -76,8 +79,8 @@ for fname in PAGES:
     old_footer = footer_region(page)
     product = modal_product(old_footer)
     f = footer_src
-    if product is not None:
-        f = footer_src.replace('data-form="modal" data-product="ОСАГО"',
+    if product is not None and TMPL_PRODUCT is not None:
+        f = footer_src.replace('data-form="modal" data-product="%s"' % TMPL_PRODUCT,
                                'data-form="modal" data-product="%s"' % product, 1)
 
     # точечная замена общих блоков, контент <main> не трогаем

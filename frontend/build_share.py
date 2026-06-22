@@ -24,7 +24,8 @@ ROOT = os.path.dirname(BASE)
 DIST = os.path.join(ROOT, "dist")
 ZIP_PATH = os.path.join(ROOT, "ЕЦС-сайт-демо.zip")
 
-PAGES = ["index.html", "kasko.html", "property.html", "travel.html", "business.html", "office.html"]
+PAGES = ["index.html", "osago.html", "kasko.html", "property.html", "travel.html",
+         "business.html", "office.html", "insurers.html", "privacy.html"]
 
 
 def data_uri(path: str) -> str:

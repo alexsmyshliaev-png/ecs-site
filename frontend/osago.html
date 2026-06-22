@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>КАСКО — индивидуальный расчёт без переплат | ЕЦС</title>
-  <meta name="description" content="КАСКО под ваш автомобиль и бюджет. Честный расчёт в более чем 20 страховых компаниях за один день, без комиссии. Объясняем, почему калькулятора КАСКО не существует.">
+  <title>ОСАГО без переплат и комиссий — ЕЦС, Единый центр страхования</title>
+  <meta name="description" content="Рассчитайте ОСАГО онлайн и оформите полис без комиссии. Подберём лучший вариант среди ведущих страховых компаний. Более 15 лет на рынке.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
 </head>
-<body data-product="КАСКО">
+<body data-product="ОСАГО">
 
 <header class="header" id="header">
   <div class="wrap header__row">
@@ -28,8 +28,8 @@
     </a>
 
     <nav class="nav">
-      <a href="osago.html">ОСАГО</a>
-      <a href="kasko.html" class="is-active">КАСКО</a>
+      <a href="osago.html" class="is-active">ОСАГО</a>
+      <a href="kasko.html">КАСКО</a>
       <a href="property.html">Имущество</a>
       <a href="travel.html">Путешествия</a>
       <a href="business.html">Бизнес</a>
@@ -43,8 +43,8 @@
 </header>
 
 <div class="mobnav" id="mobnav">
-  <a href="osago.html">ОСАГО</a>
-  <a href="kasko.html" class="is-active">КАСКО</a>
+  <a href="osago.html" class="is-active">ОСАГО</a>
+  <a href="kasko.html">КАСКО</a>
   <a href="property.html">Имущество</a>
   <a href="travel.html">Путешествия</a>
   <a href="business.html">Бизнес</a>
@@ -53,14 +53,25 @@
 
 <main id="top">
 
-  <section class="hero hero--page">
-    <div class="wrap hero__grid">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero__grid hero__grid--calc">
       <div class="hero__copy">
-        <div class="hero__eyebrow eyebrow">Полная защита автомобиля</div>
-        <h1><span class="accent">КАСКО</span><br>под ваш автомобиль<br>и бюджет</h1>
-        <p class="hero__lead">Запросим цены в более чем 20 страховых, уберём лишние опции и согласуем скидку. Вы платите только за полис.</p>
+        <div class="hero__eyebrow eyebrow">Подберём самую выгодную страховку</div>
+        <h1><span class="accent">ОСАГО</span><br>без переплат<br>и комиссий</h1>
+        <p class="hero__lead">Найдём дешевле или сделаем скидку. Подберём лучший вариант среди ведущих страховых компаний.</p>
+      </div>
+
+      <!-- Калькулятор ОСАГО (Финуслуги) -->
+      <div class="calc-frame" id="calc">
+        <div id="frame-calculator_wrap" data-id-frame="d7b09765-d80c-4043-85ec-7cfd0f5d9319" data-adv-p-id="5289dc16e387469434f49f7a2a9b1924"></div>
+        <script type="text/javascript" src="https://finuslugi.ru/osago/partners/main/iframe.bundle.iife.js"></script>
+        <p class="calc-frame__note">Расчёт проходит на платформе Финуслуги (Московская Биржа). Сравните цены страховых и оформите полис онлайн.</p>
+      </div>
+
+      <div class="hero__actions">
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_hero_kasko">Получить расчёт</a>
+          <a class="btn btn--ghost btn--lg" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_hero_manager">Связаться с менеджером</a>
           <a class="btn btn--ghost btn--lg" href="office.html" data-track="cta_hero_office">Зайти на кофе</a>
         </div>
         <div class="hero__bar">
@@ -81,17 +92,6 @@
           </button>
         </div>
       </div>
-
-      <div class="hero__panel reveal">
-        <h3>Почему здесь нет калькулятора?</h3>
-        <p>Онлайн-калькулятора КАСКО не существует. Цена считается индивидуально — под конкретный автомобиль и конкретных водителей.</p>
-        <ul>
-          <li>Тариф зависит от 20+ факторов: марка и год, пробег, стаж водителей, регион, место ночной стоянки</li>
-          <li>У каждой страховой — собственная модель рисков и свои коэффициенты</li>
-          <li>Финальную цену подтверждает андеррайтер после оценки автомобиля</li>
-        </ul>
-        <p>Поэтому «калькуляторы КАСКО» в интернете — на деле просто формы сбора заявок. Мы считаем честно: запросим реальные цены и пришлём готовые предложения.</p>
-      </div>
     </div>
   </section>
 
@@ -99,7 +99,7 @@
   <section class="section" id="raschet-info" hidden>
     <div class="wrap">
       <div class="s-head reveal raschet-head">
-        <span class="eyebrow">Считаем честно</span>
+        <span class="eyebrow">Расчёт за 10 минут</span>
         <span class="raschet-socials">
           <a class="hero__contact" data-soc="telegram" href="https://t.me/ecs_insurance" target="_blank" rel="noopener" data-track="raschet_tg" aria-label="Написать в Telegram"><img class="hero__contact-logo" src="assets/img/social-icons/Telegram_2019_Logo.svg" alt="Telegram" width="32" height="32"></a>
           <a class="hero__contact" data-soc="whatsapp" href="https://wa.me/78001234567" target="_blank" rel="noopener" data-track="raschet_wa" aria-label="Написать в WhatsApp"><img class="hero__contact-logo" src="assets/img/social-icons/whatsapp.png" alt="WhatsApp" width="32" height="32"></a>
@@ -135,7 +135,7 @@
               <div class="send-note">
                 <span class="send-note__tag">Для вашего удобства</span>
                 <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
-                <a class="btn btn--primary" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_send_list">Получить список</a>
+                <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_send_list">Получить список</a>
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@
 
         <div class="acc">
           <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
-            <span>Что прислать для расчёта КАСКО</span>
+            <span>Что прислать для расчёта ОСАГО</span>
             <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
           </button>
           <div class="acc__body">
@@ -152,12 +152,12 @@
                 <article class="step">
                   <span class="step__n"><i>1</i> Вариант 1</span>
                   <h3>Предыдущий полис</h3>
-                  <p>Если уже страховали этот автомобиль по КАСКО — в полисе есть все нужные данные.</p>
+                  <p>Самое простое: пришлите прошлый полис — в нём уже есть все данные для расчёта.</p>
                 </article>
                 <article class="step">
                   <span class="step__n"><i>2</i> Вариант 2</span>
-                  <h3>Данные авто и водителей</h3>
-                  <p>Марка, модель, год выпуска и пробег; кто будет за рулём и их водительский стаж.</p>
+                  <h3>Гос.номер и страховая</h3>
+                  <p>Если эту машину уже страховали по ОСАГО — достаточно гос.номера и названия последней страховой компании.</p>
                 </article>
                 <article class="step">
                   <span class="step__n"><i>3</i> Вариант 3</span>
@@ -165,8 +165,8 @@
                   <ul class="send-docs">
                     <li>СТС или ПТС</li>
                     <li>Водительские удостоверения всех допущенных к управлению</li>
-                    <li>Паспорт страхователя</li>
-                    <li>Если автомобиль в кредите или залоге — название банка</li>
+                    <li>Паспорт страхователя — первая страница и прописка</li>
+                    <li>Если страхует не собственник — ещё и паспорт собственника</li>
                   </ul>
                 </article>
               </div>
@@ -177,109 +177,121 @@
     </div>
   </section>
 
+  <!-- ===================== PARTNERS ===================== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <p class="partners__cap">Подбираем лучший вариант среди ведущих страховых компаний</p>
+    </div>
+    <div class="marquee" aria-label="Страховые компании-партнёры">
+      <div class="marquee__track">
+        <span class="logo"><img src="assets/img/logo-t-strahovanie.png" alt="Т-Страхование"></span>
+        <span class="logo"><img src="assets/img/logo-alfastrahovanie.png" alt="АльфаСтрахование"></span>
+        <span class="logo"><img src="assets/img/logo-renessans.png" alt="Ренессанс страхование"></span>
+        <span class="logo"><img src="assets/img/logo-sogaz.png" alt="СОГАЗ"></span>
+        <span class="logo"><img src="assets/img/logo-ingosstrah.png" alt="Ингосстрах"></span>
+        <span class="logo"><img src="assets/img/logo-reso.png" alt="РЕСО-Гарантия"></span>
+        <span class="logo"><img src="assets/img/logo-rosgosstrah.png" alt="Росгосстрах"></span>
+        <span class="logo"><img src="assets/img/logo-vsk.png" alt="ВСК Страховой дом"></span>
+        <span class="logo"><img src="assets/img/logo-maks.png" alt="МАКС Страховая группа"></span>
+      </div>
+      <div class="marquee__track" aria-hidden="true">
+        <span class="logo"><img src="assets/img/logo-t-strahovanie.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-alfastrahovanie.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-renessans.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-sogaz.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-ingosstrah.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-reso.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-rosgosstrah.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-vsk.png" alt=""></span>
+        <span class="logo"><img src="assets/img/logo-maks.png" alt=""></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BENTO ===================== -->
   <section class="section">
     <div class="wrap">
       <div class="s-head reveal">
-        <span class="eyebrow">Что покрывает</span>
-        <h2>КАСКО платит там, где ОСАГО бессильно</h2>
-        <p>ОСАГО возмещает ущерб только пострадавшей стороне. КАСКО защищает ваш собственный автомобиль.</p>
+        <span class="eyebrow">Почему ЕЦС</span>
+        <h2>НАШИ супер силы&nbsp;</h2>
       </div>
       <div class="bento">
         <article class="card card--feature card--photo b-1 reveal">
-          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
-          <h3>ДТП — даже по вашей вине</h3>
-          <p>Ремонт вашего автомобиля независимо от того, кто виноват в аварии. Включая случаи, когда виновник скрылся.</p>
-          <span class="card__tag">Главный риск</span>
+          <div class="card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </div>
+          <h3>Проверим цену</h3>
+          <p>Посчитанную вашим агентом, страховой компанией или банком — и поможем найти дешевле.</p>
+          <span class="card__tag">Бесплатный расчёт</span>
         </article>
+
         <article class="card b-2 reveal">
-          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Угон и хищение</h3>
-          <p>Возмещение стоимости автомобиля при угоне или краже отдельных элементов.</p>
+          <div class="card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <h3>Поделимся опытом</h3>
+          <p>Работаем на рынке более 15 лет, знаем все подводные камни современного страхования.</p>
         </article>
+
         <article class="card card--accent b-3 reveal">
-          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
-          <h3>Стихия и вандализм</h3>
-          <p>Град, упавшее дерево, потоп, поджог, царапины во дворе — всё это страховой случай.</p>
+          <div class="card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Не возьмём комиссию</h3>
+          <p>Вы не оплачиваете нашу работу, переводите деньги только напрямую страховой компании.</p>
         </article>
+
         <article class="card card--feature card--photo b-4 reveal">
-          <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V5l-8-3Z"/></svg></div>
-          <h3>Полная гибель (тотал)</h3>
-          <p>Если восстанавливать автомобиль нецелесообразно — получите выплату в размере его стоимости.</p>
+          <div class="card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><path d="M6 1v3M10 1v3M14 1v3"></path></svg>
+          </div>
+          <h3>Угостим кофе</h3>
+          <p>Заходите в офис — встретим как гостя и спокойно во всём разберёмся.</p>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ===================== STEPS ===================== -->
   <section class="section">
     <div class="wrap">
       <div class="s-head reveal">
-        <span class="eyebrow">Сравнение</span>
-        <h2>ОСАГО и КАСКО — это разные полисы</h2>
-      </div>
-      <div class="reveal" style="overflow-x:auto">
-        <table class="cmp">
-          <tr><th></th><th>ОСАГО</th><th>КАСКО</th></tr>
-          <tr><td>Обязателен по закону</td><td class="yes">Да</td><td class="no">Нет, добровольно</td></tr>
-          <tr><td>Ремонт чужого автомобиля</td><td class="yes">Да</td><td class="no">—</td></tr>
-          <tr><td>Ремонт вашего автомобиля</td><td class="no">—</td><td class="yes">Да</td></tr>
-          <tr><td>Угон, стихия, вандализм</td><td class="no">—</td><td class="yes">Да</td></tr>
-          <tr><td>Максимальная выплата</td><td>До 400 000 ₽ за имущество</td><td>Полная стоимость автомобиля</td></tr>
-          <tr><td>Как считается цена</td><td>Единый тариф ЦБ + коэффициенты</td><td>Индивидуально под автомобиль</td></tr>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="s-head reveal">
-        <span class="eyebrow">Как это работает</span>
-        <h2>Реальный расчёт за один день</h2>
+        <span class="eyebrow">Памятка</span>
+        <h2>Что делать при страховом случае</h2>
       </div>
       <div class="steps">
         <article class="step reveal">
           <span class="step__n"><i>1</i> Шаг 1</span>
-          <h3>Оставьте заявку</h3>
-          <p>Имя, телефон и пара слов об автомобиле — этого достаточно, чтобы начать.</p>
+          <h3>Соблюдайте спокойствие</h3>
+          <p>Запросите у второго участника ДТП полис ОСАГО и проверьте его в базе НСИС — он понадобится для извещения о ДТП и гарантирует компенсацию ущерба от виновника.</p>
+          <a class="step__link" href="https://nsis.ru/" target="_blank" rel="noopener" data-track="step_nsis">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Проверить полис в базе НСИС
+          </a>
         </article>
         <article class="step reveal">
           <span class="step__n"><i>2</i> Шаг 2</span>
-          <h3>Уточним детали</h3>
-          <p>Один звонок на 5 минут: водители, пробег, как храните автомобиль, нужна ли франшиза.</p>
+          <h3>Сообщите о происшествии</h3>
+          <p>Позвоните в свою страховую компанию и сообщите о происшествии. Оператор контактного центра подробно расскажет, что делать дальше.</p>
+          <a class="step__link" href="insurers.html" data-track="step_insurers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg>
+            Телефоны страховых компаний
+          </a>
         </article>
         <article class="step reveal">
           <span class="step__n"><i>3</i> Шаг 3</span>
-          <h3>Сравните предложения</h3>
-          <p>Пришлём расчёты из более чем 20 страховых с честным сравнением цен и условий. Выбор — за вами.</p>
+          <h3>Соберите документы</h3>
+          <p>Заполните извещение о ДТП, уточните у страховой комплект документов и передайте его, чтобы получить направление на осмотр. При сложностях — поможем оформить без ошибок.</p>
+          <a class="step__link" href="#" data-modal="lead" data-product="Помощь по ДТП" data-track="step_help">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5.2a8.4 8.4 0 1 1 16.1-4.3Z"/></svg>
+            Нужна помощь — напишите нам
+          </a>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="lead">
-    <div class="wrap" style="max-width:760px">
-      <div class="lead reveal">
-        <h3>Получите индивидуальный расчёт КАСКО</h3>
-        <p>Бесплатно и без обязательств. Пришлём предложения более чем 20 страховых в течение рабочего дня.</p>
-        <form class="js-lead-form" data-form="kasko-page" data-product="КАСКО">
-          <div class="lead__grid">
-            <div class="field"><label for="k-name">Имя</label><input id="k-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
-            <div class="field"><label for="k-phone">Телефон</label><input id="k-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
-            <div class="field field--wide"><label for="k-car">Автомобиль</label><input id="k-car" name="car" type="text" placeholder="Например: Kia Rio, 2021"></div>
-            <div class="field field--wide"><label for="k-comment">Комментарий</label><textarea id="k-comment" name="comment" placeholder="Кредитный автомобиль, нужна франшиза, особые пожелания…"></textarea></div>
-          </div>
-          <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
-          <button class="btn btn--primary lead__submit" type="submit">Получить расчёт</button>
-        </form>
-        <div class="lead__done">
-          <div class="ok-ic">✓</div>
-          <h3>Заявка отправлена!</h3>
-          <p style="color:var(--muted);margin-top:10px">Менеджер свяжется с вами и уточнит детали расчёта.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- ===================== FAQ ===================== -->
   <section class="section">
     <div class="wrap faq">
       <aside class="faq__aside reveal">
@@ -289,22 +301,23 @@
         </div>
         <div class="faq__card">
           <h3>Не нашли ответ?</h3>
-          <p>Напишите менеджеру — разберём ваш автомобиль и подберём программу под бюджет.</p>
-          <a class="btn btn--primary" href="#" data-modal="lead" data-product="КАСКО" data-track="cta_faq_manager">Связаться с менеджером</a>
+          <p>Напишите менеджеру — разберём ваш случай и подберём полис за 10 минут.</p>
+          <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_faq_manager">Связаться с менеджером</a>
         </div>
       </aside>
       <div class="faq__list" id="faqList"></div>
     </div>
   </section>
 
+  <!-- ===================== CTA BAND ===================== -->
   <section class="section--tight">
     <div class="wrap">
       <div class="cta-band reveal">
-        <h2>Узнайте реальную цену КАСКО</h2>
-        <p>Без «калькуляторов»-обманок: настоящие предложения более чем 20 страховых за один день.</p>
+        <h2>Готовы узнать свою цену?</h2>
+        <p>Рассчитаем ОСАГО за минуту и найдём вариант дешевле.</p>
         <div class="row">
-          <a class="btn btn--primary btn--lg" href="#lead" data-track="cta_band_kasko">Получить расчёт</a>
-          <a class="btn btn--outline btn--lg" href="tel:+78001234567" data-track="cta_band_call">Позвонить</a>
+          <a class="btn btn--primary btn--lg" href="#calc" data-track="cta_band_calc">Рассчитать стоимость</a>
+          <a class="btn btn--outline btn--lg" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_band_lead">Оставить контакт</a>
         </div>
       </div>
     </div>
@@ -365,7 +378,7 @@
       <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
       <h3>Связаться с менеджером</h3>
       <p>Оставьте контакты — перезвоним в течение 15 минут в рабочее время.</p>
-      <form class="js-lead-form" data-form="modal" data-product="КАСКО">
+      <form class="js-lead-form" data-form="modal" data-product="ОСАГО">
         <div class="lead__grid">
           <div class="field field--wide"><label for="lm-name">Имя</label><input id="lm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
           <div class="field field--wide"><label for="lm-phone">Телефон</label><input id="lm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
@@ -391,13 +404,58 @@
 <script src="assets/js/ui.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
+  // FAQ этой страницы
   window.ECS_FAQ = [
-    { q: "Что такое франшиза и зачем она нужна?", a: "Франшиза — часть ущерба, которую вы берёте на себя (например, первые 15 000 ₽). Полис с франшизой дешевле на 20–40%. Подскажем, какой размер выгоден именно вам." },
-    { q: "Можно ли платить за КАСКО в рассрочку?", a: "Да, большинство страховых разрешают оплату в 2–4 платежа без переплаты. Уточним доступные варианты при расчёте." },
-    { q: "У меня кредитный автомобиль. КАСКО обязательно?", a: "Если автомобиль в залоге у банка — да, банк требует КАСКО. Мы подберём полис, который примет ваш банк, и поможем не переплачивать за навязанные опции." },
-    { q: "Страхуете ли подержанные автомобили?", a: "Да. Возраст автомобиля влияет на тариф и набор рисков, но программы есть почти для любых машин. Для авто старше 7–10 лет подберём усечённые программы — например, только угон и тотал." },
-    { q: "Как снизить цену КАСКО?", a: "Рабочие способы: франшиза, ограниченный список водителей, телематика, усечённое покрытие (угон + тотал), охранные системы. Покажем, сколько экономит каждый вариант." }
+    { q: "Чем вы отличаетесь от покупки напрямую в страховой?", a: "Ценой и сервисом. Мы сравниваем предложения более 20 ведущих компаний и показываем реальную минимальную цену. Комиссию с вас не берём — наша работа оплачивается страховыми компаниями." },
+    { q: "Это точно официальный полис?", a: "Да. Полис оформляется напрямую в выбранной страховой компании и сразу попадает в базу РСА. Оплата уходит на счёт страховой, а не нам." },
+    { q: "Какие документы нужны для оформления ОСАГО?", a: "Паспорт владельца, СТС или ПТС, водительские удостоверения всех, кто будет вписан в полис, и диагностическая карта для автомобилей старше 4 лет." },
+    { q: "Можно ли сохранить скидку за безаварийную езду (КБМ)?", a: "Да, КБМ привязан к водителю и учитывается автоматически. Если скидка «потерялась», поможем восстановить её через РСА — бесплатно." },
+    { q: "Когда начинает действовать полис?", a: "Электронный полис ОСАГО начинает действовать не ранее чем через 3 дня после оформления — это требование закона. Планируйте покупку заранее." },
+    { q: "Что делать, если у меня нет номера автомобиля?", a: "Ничего страшного: новый автомобиль можно застраховать по VIN. Оставьте заявку — менеджер оформит всё вручную за 10–15 минут." }
   ];
+
+  // Калькулятор по номеру авто: маска региона + заявка с подставленным номером
+  (function () {
+    var form = document.getElementById("plateForm");
+    var input = document.getElementById("plateInput");
+    var region = document.getElementById("plateRegion");
+    var hint = document.getElementById("plateHint");
+    var plate = document.getElementById("plate");
+    if (!form) return;
+    var L = "АВЕКМНОРСТУХABEKMHOPCTYX";
+    var re = new RegExp("^[" + L + "]\\s?\\d{3}\\s?[" + L + "]{2}$", "i");
+
+    input.addEventListener("input", function () {
+      var v = input.value.toUpperCase();
+      // регион — цифры после основного номера
+      var m = v.replace(/\s+/g, "").match(new RegExp("^([" + L + "]\\d{3}[" + L + "]{2})(\\d{0,3})$", "i"));
+      if (m && m[2]) { region.textContent = m[2]; input.value = m[1].replace(/^(.)(\d{3})(..)$/, "$1 $2 $3"); }
+      else input.value = v;
+      plate.classList.remove("is-valid", "is-invalid");
+      hint.className = "calc__hint"; hint.textContent = "Формат: А 000 АА 00";
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = re.test(input.value.trim()) || /\d{2,3}$/.test(region.textContent);
+      if (!input.value.trim() || !ok) {
+        plate.classList.add("is-invalid");
+        hint.className = "calc__hint err"; hint.textContent = "Проверьте номер — формат А 000 АА 00";
+        return;
+      }
+      plate.classList.add("is-valid");
+      hint.className = "calc__hint ok"; hint.textContent = "Отлично! Менеджер рассчитает точную цену.";
+      var num = input.value.trim() + " " + region.textContent;
+      try { localStorage.setItem("ecs_plate", num); } catch (err) {}
+      window.ecsTrack("calc_plate_filled", { plate_region: region.textContent });
+      // открываем заявку с подставленным номером
+      if (window.ECS.ui && window.ECS.ui.openModal) {
+        window.ECS.ui.openModal("ОСАГО");
+        var ta = document.querySelector('#leadModal [name="comment"]');
+        if (ta && !ta.value) ta.value = "Номер авто: " + num;
+      }
+    });
+  })();
 </script>
 
 </body>

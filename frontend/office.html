@@ -53,111 +53,113 @@
 
 <main id="top">
 
+  <!-- ===================== HERO ===================== -->
   <section class="hero hero--page">
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <div class="hero__eyebrow eyebrow">Приходите в гости</div>
-        <h1>Офис <span class="accent">ЕЦС</span></h1>
-        <p class="hero__lead">Разберём ваш случай за чашкой кофе: документы, расчёты и полис — на месте. Запишитесь, чтобы не ждать.</p>
+        <h1>С нами приятно<br>не&nbsp;только страховаться</h1>
+        <p class="hero__lead">Ждём вас на кофе в нашем центральном офисе на Невском, 44. Разберём ваш случай, рассчитаем полис и угостим кофе с видом на Неву.</p>
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#booking" data-track="cta_hero_booking">Записаться на приём</a>
-          <a class="btn btn--ghost btn--lg" href="tel:+78001234567" data-track="cta_hero_call">Позвонить</a>
+          <a class="btn btn--primary btn--lg" href="#visit" data-track="cta_office_coffee">Зайти на кофе</a>
+          <a class="btn btn--ghost btn--lg" href="tel:+78122409080" data-track="cta_office_call">Позвонить</a>
         </div>
         <div class="hero__socials-row">
           <span class="hero__socials-cap">Напишите нам в мессенджер</span>
-          <a class="hero__contact" data-soc="telegram" href="https://t.me/ecs_insurance" target="_blank" rel="noopener" data-track="hero_contact_tg" aria-label="Написать в Telegram">
-            <img class="hero__contact-logo" src="assets/img/social-icons/Telegram_2019_Logo.svg" alt="Telegram" width="38" height="38">
-          </a>
-          <a class="hero__contact" data-soc="whatsapp" href="https://wa.me/78001234567" target="_blank" rel="noopener" data-track="hero_contact_wa" aria-label="Написать в WhatsApp">
-            <img class="hero__contact-logo" src="assets/img/social-icons/whatsapp.png" alt="WhatsApp" width="38" height="38">
-          </a>
-          <a class="hero__contact" data-soc="max" href="https://max.ru/ecs_insurance" target="_blank" rel="noopener" data-track="hero_contact_max" aria-label="Написать в MAX">
-            <img class="hero__contact-logo" src="assets/img/social-icons/max.svg" alt="MAX" width="38" height="38">
-          </a>
+          <a class="hero__contact" data-soc="telegram" href="https://t.me/ecs_insurance" target="_blank" rel="noopener" data-track="hero_contact_tg" aria-label="Написать в Telegram"><img class="hero__contact-logo" src="assets/img/social-icons/Telegram_2019_Logo.svg" alt="Telegram" width="38" height="38"></a>
+          <a class="hero__contact" data-soc="whatsapp" href="https://wa.me/78001234567" target="_blank" rel="noopener" data-track="hero_contact_wa" aria-label="Написать в WhatsApp"><img class="hero__contact-logo" src="assets/img/social-icons/whatsapp.png" alt="WhatsApp" width="38" height="38"></a>
+          <a class="hero__contact" data-soc="max" href="https://max.ru/ecs_insurance" target="_blank" rel="noopener" data-track="hero_contact_max" aria-label="Написать в MAX"><img class="hero__contact-logo" src="assets/img/social-icons/max.svg" alt="MAX" width="38" height="38"></a>
         </div>
       </div>
 
       <div class="hero__panel reveal">
         <h3>Как нас найти</h3>
         <ul>
-          <li>Адрес: г. Санкт-Петербург — точный адрес добавим</li>
+          <li>Адрес: Невский пр., 44</li>
+          <li>Телефон: <a href="tel:+78122409080" style="color:inherit;text-decoration:underline">+7 812 240-90-80</a></li>
           <li>Ежедневно с 9:00 до 21:00, без перерывов</li>
-          <li>Парковка рядом с офисом</li>
           <li>Кофе — за наш счёт</li>
         </ul>
-        <a class="btn btn--outline" href="https://yandex.ru/maps/?text=ЕЦС%20Единый%20центр%20страхования%20Санкт-Петербург" target="_blank" rel="noopener" data-track="office_route">Построить маршрут</a>
+        <a class="btn btn--outline" href="https://yandex.ru/maps/?text=Санкт-Петербург, Невский проспект 44" target="_blank" rel="noopener" data-track="office_route">Построить маршрут</a>
       </div>
     </div>
   </section>
 
+  <!-- ===================== КАРТА ===================== -->
   <section class="section--tight" id="map">
     <div class="wrap">
-      <div class="map-box reveal">
-        <div id="ymap"></div>
-        <div class="ph" id="mapPh">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg>
-          <div><b>Здесь будет карта</b><span>появится автоматически после того, как впишете API-ключ Яндекс.Карт и координаты офиса в assets/js/config.js</span></div>
-        </div>
+      <div class="map-box map-yandex reveal">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1c47a5c6b170ade1e79e88defe539b56bb6d34e1cf1e70d6a9c0f5b284e75dab&amp;width=724&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
       </div>
     </div>
   </section>
 
+  <!-- ===================== ГАЛЕРЕЯ ===================== -->
   <section class="section">
     <div class="wrap">
       <div class="s-head reveal">
-        <span class="eyebrow">Офис</span>
-        <h2>Как у нас внутри</h2>
-        <p>Фотографии добавим, когда будут готовы — слоты уже на месте.</p>
+        <span class="eyebrow">Наш офис</span>
+        <h2>Загляните, как у нас внутри</h2>
       </div>
-      <div class="gallery reveal">
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Фото офиса</b><span>главный зал</span></div></div>
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Фото офиса</b><span>переговорная</span></div></div>
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Фото офиса</b><span>зона ожидания</span></div></div>
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Фото офиса</b><span>вход</span></div></div>
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Фото офиса</b><span>команда</span></div></div>
+      <div class="office-photos reveal">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Переговорная комната</b><span>Где можно подождать оформления полиса, если там не запланированы встречи</span></div></div>
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Зона релакса</b><span>Видовая зона отдыха для клиентов с прекрасным видом на Неву и мост Александра Невского</span></div></div>
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Вид из переговорной</b><span>На вечернюю Неву</span></div></div>
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Вид из зоны отдыха</b><span>На Неву и величественный мост Александра Невского</span></div></div>
       </div>
     </div>
   </section>
 
+  <!-- ===================== ВЫБОР МЕСТА + КОФЕ ===================== -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="info-row">
-        <div class="info-card reveal">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>Адрес</h3>
-          <p>г. Санкт-Петербург<br>точный адрес добавим</p>
+      <div class="s-head reveal">
+        <span class="eyebrow">Кофе с нами</span>
+        <h2>Выбирайте место, где расположиться на кофе</h2>
+        <p>Пока менеджеры оформляют страховку — устраивайтесь там, где вам уютнее.</p>
+      </div>
+      <div class="office-photos reveal">
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Кофе</b><span>которым мы угощаем наших клиентов</span></div></div>
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="4"/></svg><div><b>Кофе</b><span>сварим под ваше настроение</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== КОФЕ И СТРАХОВАНИЕ ===================== -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="s-head reveal">
+        <span class="eyebrow">На заметку</span>
+        <h2>Что полезно знать о кофе</h2>
+      </div>
+      <div class="coffee-cmp reveal">
+        <div class="coffee-card">
+          <h3>В чём разница между кофе и страхованием?</h3>
+          <ul>
+            <li>Кофе угостим сразу, а полис придётся немного подождать</li>
+            <li>Удовольствие от кофе — от нескольких минут до пары часов; полис защищает целый год</li>
+          </ul>
         </div>
-        <div class="info-card reveal">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>Часы работы</h3>
-          <p>Ежедневно 9:00–21:00<br>без перерывов и выходных</p>
-        </div>
-        <div class="info-card reveal">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg></span>Контакты</h3>
-          <a href="tel:+78001234567">8 800 123-45-67</a>
-          <a href="mailto:info@ecs.ru">info@ecs.ru</a>
+        <div class="coffee-card">
+          <h3>Что общего между кофе и страхованием?</h3>
+          <ul>
+            <li>И кофе, и полисы для вас сделают наши менеджеры</li>
+            <li>Вы получите удовольствие и от кофе, и от общения с менеджерами</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="booking" style="padding-top:0">
-    <div class="wrap" style="max-width:760px">
-      <div class="lead reveal">
-        <h3>Запись на приём</h3>
-        <p>Выберите удобное время — подтвердим запись звонком или сообщением.</p>
-        <form class="js-lead-form" data-form="office-booking" data-product="Запись в офис">
-          <div class="lead__grid">
-            <div class="field"><label for="o-name">Имя</label><input id="o-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
-            <div class="field"><label for="o-phone">Телефон</label><input id="o-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
-            <div class="field field--wide"><label for="o-when">Удобные дата и время</label><input id="o-when" name="when" type="text" placeholder="Например: пятница после 18:00"></div>
-            <div class="field field--wide"><label for="o-comment">С чем приходите</label><textarea id="o-comment" name="comment" placeholder="ОСАГО, КАСКО, имущество, страховой случай…"></textarea></div>
-          </div>
-          <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
-          <button class="btn btn--primary lead__submit" type="submit">Записаться</button>
-        </form>
-        <div class="lead__done">
-          <div class="ok-ic">✓</div>
-          <h3>Вы записаны!</h3>
-          <p style="color:var(--muted);margin-top:10px">Подтвердим время звонком в ближайший час (в рабочее время).</p>
+  <!-- ===================== CTA ===================== -->
+  <section class="section--tight" id="visit">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Мы уже ждём вас</h2>
+        <p>Нажмите и сообщите, когда приедете, — встретим и приготовим кофе.</p>
+        <div class="row">
+          <a class="btn btn--primary btn--lg" href="#" data-modal="lead" data-product="Визит в офис" data-track="cta_office_visit">Сообщить о визите</a>
+          <a class="btn btn--outline btn--lg" href="tel:+78122409080" data-track="cta_office_call2">+7 812 240-90-80</a>
         </div>
       </div>
     </div>
@@ -199,7 +201,7 @@
         <h4>Контакты</h4>
         <a href="tel:+78001234567">8 800 123-45-67</a>
         <a href="mailto:info@ecs.ru">info@ecs.ru</a>
-        <a href="office.html">г. Санкт-Петербург</a>
+        <a href="office.html">Невский пр., 44, Санкт-Петербург</a>
         <a href="office.html">Ежедневно 9:00–21:00</a>
       </div>
     </div>

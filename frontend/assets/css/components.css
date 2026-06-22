@@ -85,8 +85,15 @@
 }
 .hero__contact:hover { background: var(--surface-2); }
 .hero__contact-logo { width: 38px; height: 38px; display: block; }
-/* ряд иконок-мессенджеров без бара (страница «Офис») */
-.hero__socials-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+/* ряд иконок-мессенджеров без бара (страница «Офис») — аккуратные плитки */
+.hero__socials-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
+.hero__socials-cap { width: 100%; font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--muted); margin-bottom: 2px; }
+.hero__socials-row .hero__contact {
+  width: 56px; height: 56px; border-radius: 15px;
+  background: var(--surface); border: var(--border-w) solid var(--border);
+  box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease;
+}
+.hero__socials-row .hero__contact:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background: var(--surface); }
 /* На узких экранах бар не помещается в строку (иконки + nowrap-кнопка
    шире ~450px и распирают страницу) — складываем в столбик. */
 @media (max-width: 540px) {
@@ -322,22 +329,22 @@
    Stats band
    ============================================================ */
 .stats {
-  background: var(--feature-bg); border-radius: var(--radius); overflow: hidden;
-  position: relative; color: #fff;
-}
-.stats::before {
-  content:""; position:absolute; inset:0;
-  background: url("../img/line-city.png") center bottom / cover no-repeat; opacity:.06;
+  background: var(--surface); border: var(--border-w) solid var(--border);
+  border-radius: var(--radius); overflow: hidden; position: relative; color: #fff;
 }
 .stats__inner {
   position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr);
-  padding: 46px 40px;
+  padding: 44px 36px;
 }
-.stats__inner > div { padding: 0 28px; border-left: 1px solid rgba(255,255,255,.14); }
+.stats__inner > div { padding: 4px 34px; border-left: 1px solid var(--border); }
 .stats__inner > div:first-child { border-left: none; padding-left: 0; }
-.stats b { font-size: clamp(34px, 4vw, 48px); font-weight: 900; letter-spacing: -.03em; display: block; }
-.stats b .u { color: #ff5a6e; font-size: inherit; display: inline; margin: 0; }
-.stats span { color: rgba(255,255,255,.7); font-size: 15px; margin-top: 6px; display: block; }
+.stats b {
+  font-size: clamp(38px, 4.2vw, 52px); font-weight: 800; letter-spacing: -.03em;
+  line-height: 1; color: #fff; display: inline-flex; align-items: baseline; gap: 4px;
+}
+.stats b .u { color: #fff; font-size: inherit; }
+.stats b .un { color: var(--accent); font-weight: 800; font-size: inherit; }
+.stats__inner > div > span { color: var(--muted); font-size: 14.5px; margin-top: 14px; display: block; line-height: 1.4; }
 
 /* ============================================================
    FAQ accordion
@@ -633,23 +640,29 @@
 /* line-art подложка на тёмных блоках — почти незаметная */
 .page-biz .hero__panel::before,
 .page-biz .faq__card::before { opacity: .04; }
-.page-biz .stats::before { opacity: .03; }
 .page-biz .hero--page h1 { font-weight: 800; letter-spacing: -.025em; font-size: clamp(36px, 4.8vw, 62px); }
 .page-biz .eyebrow { letter-spacing: .2em; }
+
+/* направления — таблица карточек с акцентной линией при наведении */
 .biz-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
-.biz-card { background: var(--surface); padding: 36px 30px; transition: background .2s; }
+.biz-card { background: var(--surface); padding: 38px 32px; position: relative; transition: background .2s; }
+.biz-card::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--accent); transition: width .3s ease; }
 .biz-card:hover { background: var(--surface-2); }
-.biz-card .num { font-size: 12.5px; font-weight: 700; letter-spacing: .16em; color: var(--accent); }
-.biz-card h3 { font-size: 19px; font-weight: 700; margin-top: 14px; letter-spacing: -.01em; }
-.biz-card p { color: var(--muted); font-size: 14.5px; margin-top: 10px; line-height: 1.55; }
-.biz-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: bizstep; }
-.biz-step { border-top: 2px solid var(--border-strong); padding-top: 20px; position: relative; }
+.biz-card:hover::before { width: 100%; }
+.biz-card .num { font-size: 13px; font-weight: 800; letter-spacing: .16em; color: var(--accent); }
+.biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 16px; letter-spacing: -.01em; }
+.biz-card p { color: var(--muted); font-size: 14.5px; margin-top: 11px; line-height: 1.6; }
+
+/* процесс — крупные пронумерованные шаги с акцентной чертой */
+.biz-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: bizstep; }
+.biz-step { border-top: 2px solid var(--accent); padding-top: 22px; position: relative; }
 .biz-step::before {
   counter-increment: bizstep; content: "0" counter(bizstep);
-  font-size: 13px; font-weight: 800; letter-spacing: .14em; color: var(--accent);
+  display: block; margin-bottom: 10px;
+  font-size: 22px; font-weight: 800; letter-spacing: -.01em; color: var(--accent); line-height: 1;
 }
-.biz-step h3 { font-size: 17.5px; font-weight: 700; margin-top: 10px; }
-.biz-step p { color: var(--muted); font-size: 14.5px; margin-top: 8px; line-height: 1.55; }
+.biz-step h3 { font-size: 18px; font-weight: 700; margin-top: 0; }
+.biz-step p { color: var(--muted); font-size: 14.5px; margin-top: 8px; line-height: 1.6; }
 
 @media (max-width: 1080px) {
   .biz-services { grid-template-columns: repeat(2, 1fr); }

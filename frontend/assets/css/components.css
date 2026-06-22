@@ -707,3 +707,14 @@
 .step__link { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); line-height: 1.4; }
 .step__link svg { width: 17px; height: 17px; flex: 0 0 17px; }
 .step__link:hover { text-decoration: underline; }
+
+/* иконки мессенджеров справа от eyebrow в блоке «расчёт за 10 минут» */
+.raschet-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.raschet-socials { display: flex; align-items: center; gap: 10px; }
+.raschet-socials .hero__contact {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: var(--surface); border: var(--border-w) solid var(--border); box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.raschet-socials .hero__contact:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background: var(--surface); }
+.raschet-socials .hero__contact-logo { width: 32px; height: 32px; }

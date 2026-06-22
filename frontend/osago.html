@@ -86,98 +86,89 @@
               <img class="hero__contact-logo" src="assets/img/social-icons/max.svg" alt="MAX" width="38" height="38">
             </a>
           </span>
-          <button class="hero__bar-toggle" type="button" data-toggle="raschet-info" aria-expanded="false" aria-controls="raschet-info" data-track="cta_raschet_info">
+          <button class="hero__bar-toggle" type="button" data-toggle="raschet-info" data-noscroll aria-expanded="false" aria-controls="raschet-info" data-track="cta_raschet_info">
             Рассчитать в мессенджере
             <svg class="hero__bar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== КАК ПРИСЛАТЬ ДАННЫЕ (раскрывается кнопкой) ===================== -->
-  <section class="section" id="raschet-info" hidden>
-    <div class="wrap">
-      <div class="s-head reveal raschet-head">
-        <span class="eyebrow">Расчёт за 10 минут</span>
-        <span class="raschet-socials">
-          <a class="hero__contact" data-soc="telegram" href="https://t.me/ecs_insurance" target="_blank" rel="noopener" data-track="raschet_tg" aria-label="Написать в Telegram"><img class="hero__contact-logo" src="assets/img/social-icons/Telegram_2019_Logo.svg" alt="Telegram" width="32" height="32"></a>
-          <a class="hero__contact" data-soc="whatsapp" href="https://wa.me/78001234567" target="_blank" rel="noopener" data-track="raschet_wa" aria-label="Написать в WhatsApp"><img class="hero__contact-logo" src="assets/img/social-icons/whatsapp.png" alt="WhatsApp" width="32" height="32"></a>
-          <a class="hero__contact" data-soc="max" href="https://max.ru/ecs_insurance" target="_blank" rel="noopener" data-track="raschet_max" aria-label="Написать в MAX"><img class="hero__contact-logo" src="assets/img/social-icons/max.svg" alt="MAX" width="32" height="32"></a>
-        </span>
-      </div>
-
-      <div class="send-acc reveal">
-        <div class="acc">
-          <button class="acc__head" type="button" aria-expanded="false" data-track="acc_how_to_send">
-            <span>Как прислать информацию</span>
-            <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-          </button>
-          <div class="acc__body">
-            <div class="acc__inner">
-              <div class="steps">
-                <article class="step">
-                  <span class="step__n"><i>1</i> Вариант 1</span>
-                  <h3>Фото документов</h3>
-                  <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
-                </article>
-                <article class="step">
-                  <span class="step__n"><i>2</i> Вариант 2</span>
-                  <h3>Аудио-сообщение</h3>
-                  <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
-                </article>
-                <article class="step">
-                  <span class="step__n"><i>3</i> Вариант 3</span>
-                  <h3>Текстом в сообщении</h3>
-                  <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
-                </article>
-              </div>
-              <div class="send-note">
-                <span class="send-note__tag">Для вашего удобства</span>
-                <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
-                <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_send_list">Получить список</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="acc">
-          <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
-            <span>Что прислать для расчёта ОСАГО</span>
-            <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-          </button>
-          <div class="acc__body">
-            <div class="acc__inner">
-              <div class="steps">
-                <article class="step">
-                  <span class="step__n"><i>1</i> Вариант 1</span>
-                  <h3>Предыдущий полис</h3>
-                  <p>Самое простое: пришлите прошлый полис — в нём уже есть все данные для расчёта.</p>
-                </article>
-                <article class="step">
-                  <span class="step__n"><i>2</i> Вариант 2</span>
-                  <h3>Гос.номер и страховая</h3>
-                  <p>Если эту машину уже страховали по ОСАГО — достаточно гос.номера и названия последней страховой компании.</p>
-                </article>
-                <article class="step">
-                  <span class="step__n"><i>3</i> Вариант 3</span>
-                  <h3>Комплект документов</h3>
-                  <ul class="send-docs">
-                    <li>СТС или ПТС</li>
-                    <li>Водительские удостоверения всех допущенных к управлению</li>
-                    <li>Паспорт страхователя — первая страница и прописка</li>
-                    <li>Если страхует не собственник — ещё и паспорт собственника</li>
-                  </ul>
-                </article>
-              </div>
-            </div>
-          </div>
+        <div id="raschet-info" class="raschet-inline" hidden>
+          <div class="s-head reveal">
+                  <span class="eyebrow">Расчёт за 10 минут</span>
+                </div>
+          
+                <div class="send-acc reveal">
+                  <div class="acc">
+                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_how_to_send">
+                      <span>Как прислать информацию</span>
+                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </button>
+                    <div class="acc__body">
+                      <div class="acc__inner">
+                        <div class="steps">
+                          <article class="step">
+                            <span class="step__n"><i>1</i> Вариант 1</span>
+                            <h3>Фото документов</h3>
+                            <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
+                          </article>
+                          <article class="step">
+                            <span class="step__n"><i>2</i> Вариант 2</span>
+                            <h3>Аудио-сообщение</h3>
+                            <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
+                          </article>
+                          <article class="step">
+                            <span class="step__n"><i>3</i> Вариант 3</span>
+                            <h3>Текстом в сообщении</h3>
+                            <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
+                          </article>
+                        </div>
+                        <div class="send-note">
+                          <span class="send-note__tag">Для вашего удобства</span>
+                          <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
+                          <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_send_list">Получить список</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="acc">
+                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
+                      <span>Что прислать для расчёта ОСАГО</span>
+                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </button>
+                    <div class="acc__body">
+                      <div class="acc__inner">
+                        <div class="steps">
+                          <article class="step">
+                            <span class="step__n"><i>1</i> Вариант 1</span>
+                            <h3>Предыдущий полис</h3>
+                            <p>Самое простое: пришлите прошлый полис — в нём уже есть все данные для расчёта.</p>
+                          </article>
+                          <article class="step">
+                            <span class="step__n"><i>2</i> Вариант 2</span>
+                            <h3>Гос.номер и страховая</h3>
+                            <p>Если эту машину уже страховали по ОСАГО — достаточно гос.номера и названия последней страховой компании.</p>
+                          </article>
+                          <article class="step">
+                            <span class="step__n"><i>3</i> Вариант 3</span>
+                            <h3>Комплект документов</h3>
+                            <ul class="send-docs">
+                              <li>СТС или ПТС</li>
+                              <li>Водительские удостоверения всех допущенных к управлению</li>
+                              <li>Паспорт страхователя — первая страница и прописка</li>
+                              <li>Если страхует не собственник — ещё и паспорт собственника</li>
+                            </ul>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PARTNERS ===================== -->
+<!-- ===================== PARTNERS ===================== -->
   <section class="section section--tight">
     <div class="wrap">
       <p class="partners__cap">Подбираем лучший вариант среди ведущих страховых компаний</p>

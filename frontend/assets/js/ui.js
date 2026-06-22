@@ -141,8 +141,11 @@
           target.removeAttribute("hidden");
           // блоки внутри показываем сразу, не дожидаясь скролл-анимации
           target.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-          var y = target.getBoundingClientRect().top + window.scrollY - 80; // учитываем шапку
-          window.scrollTo({ top: y, behavior: "smooth" });
+          // data-noscroll — блок раскрывается на месте (рядом с кнопкой), не прокручиваем
+          if (!btn.hasAttribute("data-noscroll")) {
+            var y = target.getBoundingClientRect().top + window.scrollY - 80; // учитываем шапку
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
           window.ecsTrack && window.ecsTrack("toggle_open", { id: target.id });
         } else {
           target.setAttribute("hidden", "");

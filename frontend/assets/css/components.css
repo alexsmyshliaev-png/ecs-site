@@ -708,16 +708,13 @@
 .step__link svg { width: 17px; height: 17px; flex: 0 0 17px; }
 .step__link:hover { text-decoration: underline; }
 
-/* иконки мессенджеров справа от eyebrow в блоке «расчёт за 10 минут» */
-.raschet-head { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 18px; }
-.raschet-socials { display: flex; flex-direction: row; align-items: center; gap: 10px; }
-.raschet-socials .hero__contact {
-  width: 46px; height: 46px; border-radius: 13px;
-  background: var(--surface); border: var(--border-w) solid var(--border); box-shadow: var(--shadow-sm);
-  transition: transform .15s ease, box-shadow .2s ease;
-}
-.raschet-socials .hero__contact:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background: var(--surface); }
-.raschet-socials .hero__contact-logo { width: 32px; height: 32px; }
+/* блок «расчёт за 10 минут» внутри hero ОСАГО — раскрывается прямо под баром
+   мессенджеров, поэтому кнопки связи всегда рядом. В узкой колонке варианты
+   складываем в один столбец. */
+.raschet-inline { margin-top: 26px; }
+.raschet-inline .s-head { margin-bottom: 18px; }
+.raschet-inline .steps { grid-template-columns: 1fr; gap: 12px; }
+.raschet-inline .step { padding: 22px 24px; }
 
 /* ============================================================
    Страница «Офис» — кофейная тема

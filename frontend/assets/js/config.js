@@ -61,22 +61,21 @@ window.ECS_CONFIG = {
      Заполните claimPhone и claimEmail проверенными данными.
      Пустые поля показываются как «указан в полисе» / «уточните на сайте». */
   insurers: [
-    { name: "Ренессанс Страхование", site: "https://www.renins.ru",  claimPhone: "8 (800) 333-88-00", claimEmail: "" },
-    { name: "Тинькофф Страхование",  site: "",                       claimPhone: "8 800 700-55-00", claimEmail: "" },
-    { name: "Ингосстрах",            site: "https://www.ingos.ru/incident/osago",    claimPhone: "+7 (495) 956-55-55", claimEmail: "" },
-    { name: "АльфаСтрахование",      site: "https://www.alfastrah.ru",claimPhone: "8 (800) 333-0-999", claimEmail: "" },
-    { name: "Росгосстрах",           site: "https://www.rgs.ru",      claimPhone: "8 (800) 200-09-00", claimEmail: "" },
-    { name: "Совкомбанк Страхование",site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "Зетта Страхование",     site: "https://www.zettains.ru", claimPhone: "", claimEmail: "" },
-    { name: "ВСК",                   site: "https://www.vsk.ru",      claimPhone: "", claimEmail: "" },
-    { name: "СОГАЗ",                 site: "https://www.sogaz.ru",    claimPhone: "", claimEmail: "" },
-    { name: "Астро-Волга",           site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "МАКС",                  site: "https://www.makc.ru",     claimPhone: "", claimEmail: "" },
-    { name: "Согласие",              site: "https://www.soglasie.ru", claimPhone: "", claimEmail: "" },
-    { name: "INTOUCH",               site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "АО «ОСК»",              site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "Абсолют Страхование",   site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "Гелиос",                site: "",                       claimPhone: "", claimEmail: "" },
-    { name: "СберСтрахование",       site: "",                       claimPhone: "", claimEmail: "" }
+    { name: "Ренессанс Страхование",     site: "https://renins.ru/claims",                  claimPhone: "8 800 333-88-00",  claimEmail: "propertyclaims@renins.com" },
+    { name: "Т-Страхование (Тинькофф)",  site: "https://tbank.ru/insurance",                claimPhone: "8 800 755-80-00",  claimEmail: "" },
+    { name: "Ингосстрах",                site: "https://ingos.ru/incident",                 claimPhone: "8 800 100-77-55",  claimEmail: "chs@ingos.ru" },
+    { name: "АльфаСтрахование",          site: "https://alfastrah.ru/claims",               claimPhone: "8 800 333-09-99",  claimEmail: "" },
+    { name: "Росгосстрах",               site: "https://rgs.ru",                            claimPhone: "8 800 200-99-77",  claimEmail: "" },
+    { name: "Совкомбанк Страхование",    site: "https://sovcomins.ru/strakhovoy-sluchay",   claimPhone: "8 800 100-21-11",  claimEmail: "" },
+    { name: "Зетта Страхование",         site: "https://zettains.ru",                       claimPhone: "8 800 777-77-07",  claimEmail: "" },
+    { name: "ВСК",                       site: "https://vsk.ru",                            claimPhone: "8 800 775-77-51",  claimEmail: "info@vsk.ru" },
+    { name: "СОГАЗ",                     site: "https://claim.sogaz.ru",                    claimPhone: "8 800 333-08-88",  claimEmail: "" },
+    { name: "Астро-Волга",               site: "https://astrovolga.ru",                     claimPhone: "8 800 600-87-67",  claimEmail: "" },
+    { name: "МАКС",                      site: "https://makc.ru",                           claimPhone: "+7 495 730-11-01", claimEmail: "info@makc.ru" },
+    { name: "Согласие",                  site: "https://soglasie.ru/insurance",             claimPhone: "8 900 555-11-55",  claimEmail: "" },
+    { name: "АО «ОСК»",                  site: "https://osk-ins.ru",                        claimPhone: "8 800 333-00-44",  claimEmail: "" },
+    { name: "Абсолют Страхование",       site: "https://absolutins.ru/strahovoj-sluchay",   claimPhone: "+7 495 025-77-77", claimEmail: "info@absolutins.ru" },
+    { name: "Гелиос",                    site: "https://skgelios.ru",                       claimPhone: "8 800 1-007-007",  claimEmail: "propertyclaims@skgelios.ru" },
+    { name: "СберСтрахование",           site: "https://sberbankins.ru",                    claimPhone: "900",              claimEmail: "ks@sberins.ru" }
   ]
 };

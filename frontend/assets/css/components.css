@@ -453,6 +453,10 @@
   .nav, .header__phone { display: none; }
   .burger { display: grid; place-items: center; }
   .stats__inner { grid-template-columns: repeat(2, 1fr); gap: 28px 0; }
+  /* в 2 колонки весь левый столбец (нечётные) — без левого бордюра и отступа,
+     иначе «0 ₽» во 2-м ряду съезжает относительно «15+» */
+  .stats__inner > div { padding: 4px 22px; }
+  .stats__inner > div:nth-child(odd) { border-left: none; padding-left: 0; }
   .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 640px) {

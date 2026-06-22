@@ -73,7 +73,7 @@
         <div class="hero__cta">
           <a class="btn btn--ghost btn--lg" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_hero_manager">Оставить заявку</a>
           <a class="btn btn--ghost btn--lg" href="office.html" data-track="cta_hero_office">Зайти на кофе</a>
-          <a class="btn btn--ghost btn--lg" href="index.html#cheaper" data-track="cta_hero_cheaper">Уже есть расчёт? Найдём дешевле</a>
+          <a class="btn btn--ghost btn--lg" href="#" data-modal="cheaper" data-track="cta_hero_cheaper">Сравнить цену</a>
         </div>
         <div class="hero__bar">
           <span class="hero__bar-socials">
@@ -107,18 +107,15 @@
                       <div class="acc__inner">
                         <div class="steps">
                           <article class="step">
-                            <span class="step__n"><i>1</i> Вариант 1</span>
-                            <h3>Фото документов</h3>
+                            <h3><span class="step__num">1</span> Фото документов</h3>
                             <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
                           </article>
                           <article class="step">
-                            <span class="step__n"><i>2</i> Вариант 2</span>
-                            <h3>Аудио-сообщение</h3>
+                            <h3><span class="step__num">2</span> Аудио-сообщение</h3>
                             <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
                           </article>
                           <article class="step">
-                            <span class="step__n"><i>3</i> Вариант 3</span>
-                            <h3>Текстом в сообщении</h3>
+                            <h3><span class="step__num">3</span> Текстом в сообщении</h3>
                             <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
                           </article>
                         </div>
@@ -140,18 +137,15 @@
                       <div class="acc__inner">
                         <div class="steps">
                           <article class="step">
-                            <span class="step__n"><i>1</i> Вариант 1</span>
-                            <h3>Предыдущий полис</h3>
+                            <h3><span class="step__num">1</span> Предыдущий полис</h3>
                             <p>Самое простое: пришлите прошлый полис — в нём уже есть все данные для расчёта.</p>
                           </article>
                           <article class="step">
-                            <span class="step__n"><i>2</i> Вариант 2</span>
-                            <h3>Гос.номер и страховая</h3>
+                            <h3><span class="step__num">2</span> Гос.номер и страховая</h3>
                             <p>Если эту машину уже страховали по ОСАГО — достаточно гос.номера и названия последней страховой компании.</p>
                           </article>
                           <article class="step">
-                            <span class="step__n"><i>3</i> Вариант 3</span>
-                            <h3>Комплект документов</h3>
+                            <h3><span class="step__num">3</span> Комплект документов</h3>
                             <ul class="send-docs">
                               <li>СТС или ПТС</li>
                               <li>Водительские удостоверения всех допущенных к управлению</li>
@@ -383,6 +377,43 @@
         <div class="ok-ic">✓</div>
         <h3>Заявка отправлена!</h3>
         <p style="color:var(--muted);margin-top:10px">Менеджер свяжется с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CHEAPER MODAL ===================== -->
+<div class="modal" id="cheaperModal" role="dialog" aria-modal="true" aria-label="Сравнить цену">
+  <div class="modal__backdrop"></div>
+  <div class="modal__box">
+    <div class="lead">
+      <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
+      <h3>Сравним цену — найдём дешевле</h3>
+      <p>Вам уже посчитали полис у агента, в страховой, в банке или на страховом агрегаторе? Отправьте вид страховки и сумму — сравним и постараемся найти выгоднее. Бесплатно и ни к чему не обязывает.</p>
+      <form class="js-lead-form" data-form="cheaper" data-product="Найдём дешевле">
+        <div class="lead__grid">
+          <div class="field field--wide"><label for="cm-type">Вид страхования</label>
+            <select id="cm-type" name="insurance">
+              <option>ОСАГО</option>
+              <option>КАСКО</option>
+              <option>Жильё / ипотека</option>
+              <option>Путешествия</option>
+              <option>Бизнес</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="field field--wide"><label for="cm-price">Предложенная сумма, ₽</label><input id="cm-price" name="price" type="text" placeholder="Например: 12 800"></div>
+          <div class="field field--wide"><label for="cm-name">Имя</label><input id="cm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
+          <div class="field field--wide"><label for="cm-phone">Телефон</label><input id="cm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+          <div class="field field--wide"><label for="cm-comment">Комментарий</label><textarea id="cm-comment" name="comment" placeholder="Кто посчитал и на каких условиях. Сам расчёт можно прислать в мессенджер."></textarea></div>
+        </div>
+        <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
+      </form>
+      <div class="lead__done">
+        <div class="ok-ic">✓</div>
+        <h3>Заявка отправлена!</h3>
+        <p style="color:var(--muted);margin-top:10px">Сравним с другими страховыми и пришлём, где дешевле.</p>
       </div>
     </div>
   </div>

@@ -277,6 +277,14 @@
   background: color-mix(in srgb, var(--accent) 12%, transparent); font-style: normal; font-size: 17px;
 }
 .step h3 { font-size: 21px; font-weight: 800; letter-spacing: -.01em; margin-top: 22px; }
+/* карточка-вариант: заголовок сразу сверху, с номером-бейджем перед текстом */
+.step h3:first-child { margin-top: 0; display: flex; align-items: center; gap: 11px; }
+.step__num {
+  flex: 0 0 auto; display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent);
+  font-size: 16px; font-weight: 800;
+}
 .step p { color: var(--muted); font-size: 15.5px; margin-top: 10px; line-height: 1.5; }
 .step__line { position: absolute; right: -1px; top: 32px; bottom: 32px; width: 0; }
 
@@ -649,8 +657,7 @@
 .biz-card::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--accent); transition: width .3s ease; }
 .biz-card:hover { background: var(--surface-2); }
 .biz-card:hover::before { width: 100%; }
-.biz-card .num { display: block; font-size: 38px; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: var(--accent); }
-.biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 14px; letter-spacing: -.01em; }
+.biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 0; letter-spacing: -.01em; }
 .biz-card p { color: var(--muted); font-size: 14.5px; margin-top: 11px; line-height: 1.6; }
 
 /* процесс — крупные пронумерованные шаги с акцентной чертой */

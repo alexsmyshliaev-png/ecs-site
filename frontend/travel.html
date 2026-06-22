@@ -111,18 +111,15 @@
             <div class="acc__inner">
               <div class="steps">
                 <article class="step">
-                  <span class="step__n"><i>1</i> Вариант 1</span>
-                  <h3>Текстом в сообщении</h3>
+                  <h3><span class="step__num">1</span> Текстом в сообщении</h3>
                   <p>Просто напишите детали поездки текстом — в смс или мессенджере.</p>
                 </article>
                 <article class="step">
-                  <span class="step__n"><i>2</i> Вариант 2</span>
-                  <h3>Аудио-сообщение</h3>
+                  <h3><span class="step__num">2</span> Аудио-сообщение</h3>
                   <p>Надиктуйте всё голосом — можно несколькими сообщениями, как удобно.</p>
                 </article>
                 <article class="step">
-                  <span class="step__n"><i>3</i> Вариант 3</span>
-                  <h3>Фото загранпаспорта</h3>
+                  <h3><span class="step__num">3</span> Фото загранпаспорта</h3>
                   <p>Для оформления полиса пригодятся данные паспорта — пришлите фото, лицо можно закрыть :)</p>
                 </article>
               </div>
@@ -144,18 +141,15 @@
             <div class="acc__inner">
               <div class="steps">
                 <article class="step">
-                  <span class="step__n"><i>1</i> Вариант 1</span>
-                  <h3>Страна и даты</h3>
+                  <h3><span class="step__num">1</span> Страна и даты</h3>
                   <p>Куда едете и на какие даты — от этого зависит покрытие и цена.</p>
                 </article>
                 <article class="step">
-                  <span class="step__n"><i>2</i> Вариант 2</span>
-                  <h3>Туристы</h3>
+                  <h3><span class="step__num">2</span> Туристы</h3>
                   <p>Сколько человек едет и их возраст — для каждого считается отдельно.</p>
                 </article>
                 <article class="step">
-                  <span class="step__n"><i>3</i> Вариант 3</span>
-                  <h3>Детали поездки</h3>
+                  <h3><span class="step__num">3</span> Детали поездки</h3>
                   <ul class="send-docs">
                     <li>Цель: туризм, спорт, работа или учёба</li>
                     <li>Активный отдых или экстремальные виды спорта</li>
@@ -301,6 +295,43 @@
         <div class="ok-ic">✓</div>
         <h3>Заявка отправлена!</h3>
         <p style="color:var(--muted);margin-top:10px">Менеджер свяжется с вами в ближайшее время.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CHEAPER MODAL ===================== -->
+<div class="modal" id="cheaperModal" role="dialog" aria-modal="true" aria-label="Сравнить цену">
+  <div class="modal__backdrop"></div>
+  <div class="modal__box">
+    <div class="lead">
+      <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
+      <h3>Сравним цену — найдём дешевле</h3>
+      <p>Вам уже посчитали полис у агента, в страховой, в банке или на страховом агрегаторе? Отправьте вид страховки и сумму — сравним и постараемся найти выгоднее. Бесплатно и ни к чему не обязывает.</p>
+      <form class="js-lead-form" data-form="cheaper" data-product="Найдём дешевле">
+        <div class="lead__grid">
+          <div class="field field--wide"><label for="cm-type">Вид страхования</label>
+            <select id="cm-type" name="insurance">
+              <option>ОСАГО</option>
+              <option>КАСКО</option>
+              <option>Жильё / ипотека</option>
+              <option>Путешествия</option>
+              <option>Бизнес</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="field field--wide"><label for="cm-price">Предложенная сумма, ₽</label><input id="cm-price" name="price" type="text" placeholder="Например: 12 800"></div>
+          <div class="field field--wide"><label for="cm-name">Имя</label><input id="cm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
+          <div class="field field--wide"><label for="cm-phone">Телефон</label><input id="cm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+          <div class="field field--wide"><label for="cm-comment">Комментарий</label><textarea id="cm-comment" name="comment" placeholder="Кто посчитал и на каких условиях. Сам расчёт можно прислать в мессенджер."></textarea></div>
+        </div>
+        <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
+      </form>
+      <div class="lead__done">
+        <div class="ok-ic">✓</div>
+        <h3>Заявка отправлена!</h3>
+        <p style="color:var(--muted);margin-top:10px">Сравним с другими страховыми и пришлём, где дешевле.</p>
       </div>
     </div>
   </div>

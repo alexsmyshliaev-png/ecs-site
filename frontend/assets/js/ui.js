@@ -55,28 +55,33 @@
     });
   }
 
-  /* ---- модалка «Связаться с менеджером»: [data-modal="lead"] ---- */
+  /* ---- модалки: [data-modal="lead"] → #leadModal, [data-modal="cheaper"] → #cheaperModal ---- */
   function initModal() {
-    var modal = document.getElementById("leadModal");
-    if (!modal) return;
-    function open(product) {
+    function open(modal, product) {
       modal.classList.add("is-open");
       document.body.style.overflow = "hidden";
       var f = modal.querySelector("form");
       if (f && product) f.setAttribute("data-product", product);
-      window.ecsTrack("lead_modal_open", { product: product || "" });
+      window.ecsTrack("lead_modal_open", { product: product || "", modal: modal.id });
     }
-    function close() {
-      modal.classList.remove("is-open");
+    function closeAll() {
+      document.querySelectorAll(".modal.is-open").forEach(function (m) { m.classList.remove("is-open"); });
       document.body.style.overflow = "";
     }
     document.addEventListener("click", function (e) {
-      var t = e.target.closest('[data-modal="lead"]');
-      if (t) { e.preventDefault(); open(t.getAttribute("data-product") || document.body.getAttribute("data-product") || ""); }
-      if (e.target.closest(".modal__close") || e.target.classList.contains("modal__backdrop")) close();
+      var t = e.target.closest("[data-modal]");
+      if (t) {
+        var modal = document.getElementById(t.getAttribute("data-modal") + "Modal");
+        if (modal) { e.preventDefault(); open(modal, t.getAttribute("data-product") || document.body.getAttribute("data-product") || ""); return; }
+      }
+      if (e.target.closest(".modal__close") || e.target.classList.contains("modal__backdrop")) closeAll();
     });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
-    window.ECS.ui.openModal = open;
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+    // короткий алиас для fab: открыть модалку заявки
+    window.ECS.ui.openModal = function (product) {
+      var lead = document.getElementById("leadModal");
+      if (lead) open(lead, product);
+    };
   }
 
   /* ---- плавающая кнопка связи ---- */

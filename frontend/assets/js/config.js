@@ -52,5 +52,31 @@ window.ECS_CONFIG = {
   calc: {
     osago:  "5289dc16e387469434f49f7a2a9b1924",
     travel: "5289dc16e387469434f49f7a2a9b1924" // замените на id калькулятора путешествий
-  }
+  },
+
+  /* —— Страховые компании (страница insurers.html) ——
+     При страховом случае клиент открывает свою страховую и видит:
+       claimPhone — телефон для обращения по убытку (круглосуточный)
+       claimEmail — куда прислать документы
+     Заполните claimPhone и claimEmail проверенными данными.
+     Пустые поля показываются как «указан в полисе» / «уточните на сайте». */
+  insurers: [
+    { name: "Ренессанс Страхование", site: "https://www.renins.ru",  claimPhone: "", claimEmail: "" },
+    { name: "Тинькофф Страхование",  site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "Ингосстрах",            site: "https://www.ingos.ru",    claimPhone: "", claimEmail: "" },
+    { name: "АльфаСтрахование",      site: "https://www.alfastrah.ru",claimPhone: "", claimEmail: "" },
+    { name: "Росгосстрах",           site: "https://www.rgs.ru",      claimPhone: "", claimEmail: "" },
+    { name: "Совкомбанк Страхование",site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "Зетта Страхование",     site: "https://www.zettains.ru", claimPhone: "", claimEmail: "" },
+    { name: "ВСК",                   site: "https://www.vsk.ru",      claimPhone: "", claimEmail: "" },
+    { name: "СОГАЗ",                 site: "https://www.sogaz.ru",    claimPhone: "", claimEmail: "" },
+    { name: "Астро-Волга",           site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "МАКС",                  site: "https://www.makc.ru",     claimPhone: "", claimEmail: "" },
+    { name: "Согласие",              site: "https://www.soglasie.ru", claimPhone: "", claimEmail: "" },
+    { name: "INTOUCH",               site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "АО «ОСК»",              site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "Абсолют Страхование",   site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "Гелиос",                site: "",                       claimPhone: "", claimEmail: "" },
+    { name: "СберСтрахование",       site: "",                       claimPhone: "", claimEmail: "" }
+  ]
 };

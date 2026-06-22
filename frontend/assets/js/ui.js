@@ -179,7 +179,50 @@
     });
   }
 
+  /* ---- список страховых (insurers.html): рендер из config + раскрытие ---- */
+  function initInsurers() {
+    var list = document.getElementById("insurersList");
+    if (!list || !Array.isArray(CFG.insurers)) return;
+    var chev = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+    var esc = function (t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;"); };
+
+    CFG.insurers.forEach(function (ins) {
+      var phone = ins.claimPhone
+        ? '<a class="ins-line__val" href="tel:' + ins.claimPhone.replace(/[^+\d]/g, "") + '">' + esc(ins.claimPhone) + "</a>"
+        : '<span class="ins-line__val ins-line__val--muted">указан в вашем полисе</span>';
+      var email = ins.claimEmail
+        ? '<a class="ins-line__val" href="mailto:' + esc(ins.claimEmail) + '">' + esc(ins.claimEmail) + "</a>"
+        : '<span class="ins-line__val ins-line__val--muted">уточните на сайте страховой</span>';
+      var site = ins.site
+        ? '<a class="ins-item__site" href="' + esc(ins.site) + '" target="_blank" rel="noopener">Официальный сайт →</a>'
+        : "";
+
+      var item = document.createElement("div");
+      item.className = "ins-item";
+      item.innerHTML =
+        '<button class="ins-item__head" type="button" aria-expanded="false">' +
+          '<span class="ins-item__name">' + esc(ins.name) + "</span>" +
+          '<span class="ins-item__ic">' + chev + "</span>" +
+        "</button>" +
+        '<div class="ins-item__body"><div class="ins-item__inner">' +
+          '<div class="ins-line"><span class="ins-line__label">Звонок при страховом случае</span>' + phone + "</div>" +
+          '<div class="ins-line"><span class="ins-line__label">Куда прислать документы</span>' + email + "</div>" +
+          site +
+        "</div></div>";
+
+      var head = item.querySelector(".ins-item__head");
+      var body = item.querySelector(".ins-item__body");
+      head.addEventListener("click", function () {
+        var open = item.classList.toggle("is-open");
+        head.setAttribute("aria-expanded", open ? "true" : "false");
+        body.style.maxHeight = open ? body.scrollHeight + "px" : "0";
+        if (open) window.ecsTrack && window.ecsTrack("insurer_open", { name: ins.name });
+      });
+      list.appendChild(item);
+    });
+  }
+
   window.ECS.ui = {
-    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initAccordions(); }
+    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initAccordions(); initInsurers(); }
   };
 })();

@@ -62,10 +62,10 @@ window.ECS_CONFIG = {
      Пустые поля показываются как «указан в полисе» / «уточните на сайте». */
   insurers: [
     { name: "Ренессанс Страхование", site: "https://www.renins.ru",  claimPhone: "8 (800) 333-88-00", claimEmail: "" },
-    { name: "Тинькофф Страхование",  site: "8 800 700-55-00",                       claimPhone: "", claimEmail: "" },
+    { name: "Тинькофф Страхование",  site: "",                       claimPhone: "8 800 700-55-00", claimEmail: "" },
     { name: "Ингосстрах",            site: "https://www.ingos.ru/incident/osago",    claimPhone: "+7 (495) 956-55-55", claimEmail: "" },
     { name: "АльфаСтрахование",      site: "https://www.alfastrah.ru",claimPhone: "8 (800) 333-0-999", claimEmail: "" },
-    { name: "Росгосстрах",           site: "https://www.rgs.ru",      claimPhone: " 8 (800) 200-09-00", claimEmail: "" },
+    { name: "Росгосстрах",           site: "https://www.rgs.ru",      claimPhone: "8 (800) 200-09-00", claimEmail: "" },
     { name: "Совкомбанк Страхование",site: "",                       claimPhone: "", claimEmail: "" },
     { name: "Зетта Страхование",     site: "https://www.zettains.ru", claimPhone: "", claimEmail: "" },
     { name: "ВСК",                   site: "https://www.vsk.ru",      claimPhone: "", claimEmail: "" },

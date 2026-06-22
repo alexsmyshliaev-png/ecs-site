@@ -61,7 +61,7 @@ window.ECS_CONFIG = {
      Заполните claimPhone и claimEmail проверенными данными.
      Пустые поля показываются как «указан в полисе» / «уточните на сайте». */
   insurers: [
-    { name: "Ренессанс Страхование", site: "https://www.renins.ru",  claimPhone: "", claimEmail: "" },
+    { name: "Ренессанс Страхование", site: "https://www.renins.ru",  claimPhone: "+7 800 333-88-00", claimEmail: "" },
     { name: "Тинькофф Страхование",  site: "",                       claimPhone: "", claimEmail: "" },
     { name: "Ингосстрах",            site: "https://www.ingos.ru",    claimPhone: "", claimEmail: "" },
     { name: "АльфаСтрахование",      site: "https://www.alfastrah.ru",claimPhone: "", claimEmail: "" },

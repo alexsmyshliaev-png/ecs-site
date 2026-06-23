@@ -310,9 +310,11 @@
 .acc.is-open .acc__ic { background: var(--accent); color: #fff; transform: rotate(180deg); }
 .acc__ic svg { width: 18px; height: 18px; }
 .acc__body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-.acc__inner { padding: 2px 0 30px; }
+.acc__inner { padding: 14px 0 30px; }
 /* список документов внутри карточки-варианта */
-.send-docs { margin-top: 16px; display: flex; flex-direction: column; gap: 11px; }
+/* подпункты «комплекта документов» выравниваем под текст заголовка
+   (после номера-бейджа 32px + отступ 11px) */
+.send-docs { margin-top: 16px; margin-left: 43px; display: flex; flex-direction: column; gap: 11px; }
 .send-docs li { display: flex; gap: 11px; align-items: flex-start; font-size: 15px; color: var(--ink-2); line-height: 1.45; }
 .send-docs li::before {
   content: "✓"; flex: 0 0 21px; height: 21px; border-radius: 7px; display: grid; place-items: center;
@@ -357,8 +359,13 @@
 /* ============================================================
    FAQ accordion
    ============================================================ */
-.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
-.faq__list { display: flex; flex-direction: column; gap: 12px; }
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; grid-template-rows: min-content 1fr; gap: 0 56px; align-items: start; }
+.faq__head { grid-column: 1; grid-row: 1; }
+.faq__head h2 { margin-top: 14px; }
+.faq__list { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; gap: 12px; }
+.faq__more { grid-column: 1; grid-row: 2; align-self: start; margin-top: 28px; }
+.faq__help { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; max-width: 280px; }
+.faq__help .btn { width: 100%; }
 .qa {
   border: var(--border-w) solid var(--border); border-radius: var(--radius-sm);
   background: var(--surface); overflow: hidden; transition: border-color .2s, box-shadow .2s, background .2s;
@@ -379,16 +386,6 @@
 .qa__a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
 .qa__a p { padding: 0 24px 24px; color: var(--muted); font-size: 15.5px; line-height: 1.55; max-width: 62ch; }
 
-.faq__aside { position: sticky; top: 96px; }
-.faq__card {
-  background: var(--feature-bg); color: #fff; border-radius: var(--radius);
-  padding: 38px; position: relative; overflow: hidden;
-}
-.faq__card::before { content:""; position:absolute; inset:0; background:url("../img/line-building.png") center bottom / cover no-repeat; opacity:.08; }
-.faq__card > * { position: relative; z-index: 2; }
-.faq__card h3 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
-.faq__card p { color: rgba(255,255,255,.74); margin-top: 14px; font-size: 16px; line-height: 1.5; }
-.faq__card .btn { margin-top: 26px; width: 100%; }
 
 /* ============================================================
    CTA band
@@ -445,8 +442,10 @@
   .hero__grid--calc .calc-frame { max-width: 560px; margin: 0 auto; width: 100%; }
   /* подстраницы и travel: панель/калькулятор центрируем при сужении */
   .hero--page .hero__panel, .hero__grid--wide .calc-frame { max-width: 620px; margin-left: auto; margin-right: auto; width: 100%; }
-  .faq { grid-template-columns: 1fr; gap: 32px; }
-  .faq__aside { position: static; }
+  /* мобильный порядок FAQ: заголовок → вопросы → кнопка «остались вопросы?» */
+  .faq { grid-template-columns: 1fr; grid-template-rows: none; gap: 28px; }
+  .faq__head, .faq__list, .faq__more { grid-column: 1; grid-row: auto; }
+  .faq__more { margin-top: 0; }
   .b-1, .b-2, .b-3, .b-4 { grid-column: span 6; grid-row: auto; }
 }
 @media (max-width: 880px) {
@@ -799,3 +798,8 @@
 .ins-line__val--muted { color: var(--ink-2); font-weight: 600; }
 .ins-item__site { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; color: var(--accent); }
 .ins-item__site:hover { text-decoration: underline; }
+
+/* поле «связаться в мессенджере» в формах: селектор + ник */
+.msgr-field { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
+.msgr-field select, .msgr-field input { width: 100%; }
+@media (max-width: 480px) { .msgr-field { grid-template-columns: 1fr; } }

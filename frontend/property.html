@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Страхование жилья и ипотеки в Санкт-Петербурге | ЕЦС</title>
-  <meta name="description" content="Страхование квартиры, дома и дачи от залива, пожара, кражи. Ответственность перед соседями. Подбор программы в более чем 20 страховых без комиссии.">
+  <meta name="description" content="Страхование квартиры, дома и дачи от затопления, пожара, кражи. Ответственность перед соседями. Подбор программы в более чем 20 страховых без комиссии.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
       <div class="hero__copy">
         <div class="hero__eyebrow eyebrow">Жильё и ипотека</div>
         <h1>Страхование<br><span class="accent">жилья</span> и ипотеки</h1>
-        <p class="hero__lead">Квартира, дом и дача от залива, пожара и кражи — от пары сотен рублей в месяц. А для ипотеки подберём аккредитованную банком страховую дешевле, чем предлагает сам банк.</p>
+        <p class="hero__lead">Квартира, дом и дача от затопления, пожара и кражи — от пары сотен рублей в месяц. А для ипотеки подберём аккредитованную банком страховую дешевле, чем предлагает сам банк.</p>
         <div class="hero__cta">
           <a class="btn btn--primary btn--lg" href="#lead" data-track="cta_hero_property">Подобрать программу</a>
           <a class="btn btn--ghost btn--lg" href="office.html" data-track="cta_hero_office">Зайти на кофе</a>
@@ -96,7 +96,7 @@
                         <div class="steps">
                           <article class="step">
                             <h3><span class="step__num">1</span> Фото документов</h3>
-                            <p>Сфотографируйте документы и пришлите. Лицо на документе при желании можно закрыть :)</p>
+                            <p>Сфотографируйте документы и пришлите — подойдёт и скрин с Госуслуг. Лицо на документе при желании можно закрыть :)</p>
                           </article>
                           <article class="step">
                             <h3><span class="step__num">2</span> Аудио-сообщение</h3>
@@ -172,7 +172,7 @@
       <div class="bento">
         <article class="card card--feature card--photo b-1 reveal">
           <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 5.6 9a7 7 0 1 0 12.8 0L12 2.7Z"/></svg></div>
-          <h3>Залив</h3>
+          <h3>Затопление</h3>
           <p>Самый частый случай: прорвало трубу, сосед забыл закрыть кран, потёк стояк. Страховая оплатит ремонт и испорченное имущество.</p>
           <span class="card__tag">№1 по числу обращений</span>
         </article>
@@ -203,18 +203,15 @@
       </div>
       <div class="steps">
         <article class="step reveal">
-          <span class="step__n"><i>1</i></span>
-          <h3>Квартира</h3>
+          <h3><span class="step__num">1</span> Квартира</h3>
           <p>Коробочные полисы без осмотра — оформление за 15 минут. Для съёмных квартир есть программы для арендаторов и собственников.</p>
         </article>
         <article class="step reveal">
-          <span class="step__n"><i>2</i></span>
-          <h3>Дом и дача</h3>
+          <h3><span class="step__num">2</span> Дом и дача</h3>
           <p>Защита строения, бани, гаража и забора. Учтём материал стен, печное отопление и сезонность проживания.</p>
         </article>
         <article class="step reveal">
-          <span class="step__n"><i>3</i></span>
-          <h3>Ипотечное страхование</h3>
+          <h3><span class="step__num">3</span> Ипотечное страхование</h3>
           <p>Обязательный полис для банка — дешевле, чем предлагает сам банк. Сравним аккредитованные страховые и продлим вовремя.</p>
         </article>
       </div>
@@ -270,7 +267,13 @@
                 <option>Другое</option>
               </select>
             </div>
-            <div class="field field--wide"><label for="p-comment">Комментарий</label><textarea id="p-comment" name="comment" placeholder="Например: двушка 54 м², свежий ремонт, хочу защиту от залива и соседей"></textarea></div>
+            <div class="field field--wide"><label for="p-comment">Комментарий</label><textarea id="p-comment" name="comment" placeholder="Например: двушка 54 м², свежий ремонт, хочу защиту от затопления и соседей"></textarea></div>
+            <div class="field field--wide"><label>Связаться в мессенджере (необязательно)</label>
+              <div class="msgr-field">
+                <select name="messenger" aria-label="Мессенджер"><option value="">Не нужно</option><option>Telegram</option><option>WhatsApp</option><option>MAX</option></select>
+                <input name="messenger_user" type="text" placeholder="@username или ник">
+              </div>
+            </div>
           </div>
           <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
           <button class="btn btn--primary lead__submit" type="submit">Подобрать программу</button>
@@ -286,18 +289,18 @@
 
   <section class="section">
     <div class="wrap faq">
-      <aside class="faq__aside reveal">
+      <div class="faq__head reveal">
         <span class="eyebrow">FAQ</span>
-        <div class="s-head" style="margin:14px 0 28px">
-          <h2 style="font-size:clamp(28px,3.2vw,40px)">Часто задаваемые вопросы</h2>
-        </div>
-        <div class="faq__card">
-          <h3>Не нашли ответ?</h3>
-          <p>Напишите менеджеру — подскажем программу под ваш объект за 10 минут.</p>
-          <a class="btn btn--primary" href="#" data-modal="lead" data-product="Имущество" data-track="cta_faq_manager">Оставить заявку</a>
-        </div>
-      </aside>
+        <h2 style="font-size:clamp(28px,3.2vw,40px)">Часто задаваемые вопросы</h2>
+      </div>
       <div class="faq__list" id="faqList"></div>
+      <div class="faq__more reveal">
+        <button class="btn btn--ghost" type="button" data-toggle="faq-help" data-noscroll aria-expanded="false" aria-controls="faq-help">Остались вопросы?</button>
+        <div id="faq-help" class="faq__help" hidden>
+          <a class="btn btn--primary" href="tel:+78001234567" data-track="faq_call">Позвонить</a>
+          <a class="btn btn--outline" href="#" data-modal="lead" data-product="Имущество" data-track="faq_lead">Оставить заявку</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -374,6 +377,12 @@
           <div class="field field--wide"><label for="lm-name">Имя</label><input id="lm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
           <div class="field field--wide"><label for="lm-phone">Телефон</label><input id="lm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="field field--wide"><label for="lm-comment">Комментарий</label><textarea id="lm-comment" name="comment" placeholder="Например: нужен полис на Kia Rio 2021"></textarea></div>
+            <div class="field field--wide"><label>Связаться в мессенджере (необязательно)</label>
+              <div class="msgr-field">
+                <select name="messenger" aria-label="Мессенджер"><option value="">Не нужно</option><option>Telegram</option><option>WhatsApp</option><option>MAX</option></select>
+                <input name="messenger_user" type="text" placeholder="@username или ник">
+              </div>
+            </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
         <button class="btn btn--primary lead__submit" type="submit">Отправить</button>
@@ -411,6 +420,12 @@
           <div class="field field--wide"><label for="cm-name">Имя</label><input id="cm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
           <div class="field field--wide"><label for="cm-phone">Телефон</label><input id="cm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="field field--wide"><label for="cm-comment">Комментарий</label><textarea id="cm-comment" name="comment" placeholder="Кто посчитал и на каких условиях. Сам расчёт можно прислать в мессенджер."></textarea></div>
+            <div class="field field--wide"><label>Связаться в мессенджере (необязательно)</label>
+              <div class="msgr-field">
+                <select name="messenger" aria-label="Мессенджер"><option value="">Не нужно</option><option>Telegram</option><option>WhatsApp</option><option>MAX</option></select>
+                <input name="messenger_user" type="text" placeholder="@username или ник">
+              </div>
+            </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
         <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
@@ -437,7 +452,7 @@
     { q: "Сколько стоит полис?", a: "Зависит от объекта и набора рисков: базовая защита квартиры обходится от нескольких сотен рублей в месяц. Менеджер посчитает точную цену за один звонок." },
     { q: "Я снимаю квартиру. Мне это нужно?", a: "Да — есть программы для арендаторов: ваша техника и вещи плюс ответственность перед владельцем и соседями. Стоит недорого, а спасает от очень неприятных расходов." },
     { q: "У меня ипотека. Какой полис требует банк?", a: "Банк требует страхование конструктива. Мы сравним аккредитованные вашим банком страховые — обычно это на 20–40% дешевле, чем оформлять в самом банке." },
-    { q: "Как получить выплату при заливе?", a: "Зафиксируйте последствия на фото, вызовите представителя УК для акта и сообщите о случае в свою страховую — её телефон есть в полисе и на нашей странице «Страховые компании». При необходимости поможем собрать документы и подать заявление правильно с первого раза." }
+    { q: "Как получить выплату при затоплении?", a: "Зафиксируйте последствия на фото, вызовите представителя УК для акта и сообщите о случае в свою страховую — её телефон есть в полисе и на нашей странице «Страховые компании». При необходимости поможем собрать документы и подать заявление правильно с первого раза." }
   ];
 </script>
 

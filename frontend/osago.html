@@ -28,7 +28,7 @@
 
     <div class="header__cta">
       <a class="header__phone" href="tel:+78001234567">8 800 123-45-67<span>Ежедневно 9:00–21:00</span></a>
-      <button class="burger" aria-label="Меню"><span></span></button>
+      <button class="burger" aria-label="Меню"><span class="burger__bars"></span><span class="burger__label">Меню</span></button>
     </div>
   </div>
 </header>
@@ -88,65 +88,29 @@
                   <span class="eyebrow">Расчёт за 10 минут</span>
                 </div>
           
-                <div class="send-acc reveal">
-                  <div class="acc">
-                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_how_to_send">
-                      <span>Как прислать информацию</span>
-                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-                    </button>
-                    <div class="acc__body">
-                      <div class="acc__inner">
-                        <div class="steps">
-                          <article class="step">
-                            <h3><span class="step__num">1</span> Фото документов</h3>
-                            <p>Сфотографируйте документы и пришлите — подойдёт и скрин с Госуслуг. Лицо на документе при желании можно закрыть :)</p>
-                          </article>
-                          <article class="step">
-                            <h3><span class="step__num">2</span> Аудио-сообщение</h3>
-                            <p>Надиктуйте все данные голосом — можно несколькими сообщениями, как удобно.</p>
-                          </article>
-                          <article class="step">
-                            <h3><span class="step__num">3</span> Текстом в сообщении</h3>
-                            <p>Просто напишите все данные текстом — в смс или мессенджере.</p>
-                          </article>
-                        </div>
-                        <div class="send-note">
-                          <span class="send-note__tag">Для вашего удобства</span>
-                          <p>Напишите вид страхования — и менеджер пришлёт точный список того, что нужно для расчёта.</p>
-                          <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_send_list">Получить список</a>
-                        </div>
-                      </div>
+                <div class="send-flat reveal">
+                  <div class="send-flat__cols">
+                    <div class="send-flat__group">
+                      <h4 class="send-flat__title">Как прислать информацию</h4>
+                      <ul class="bullets">
+                        <li><b>Фото документов</b> — подойдёт и скрин с Госуслуг (лицо при желании можно закрыть).</li>
+                        <li><b>Аудио-сообщение</b> — надиктуйте данные голосом, можно в несколько сообщений.</li>
+                        <li><b>Текстом</b> — просто напишите данные в смс или мессенджере.</li>
+                      </ul>
+                    </div>
+                    <div class="send-flat__group">
+                      <h4 class="send-flat__title">Что прислать для расчёта ОСАГО</h4>
+                      <ul class="bullets">
+                        <li><b>Предыдущий полис</b> — в нём уже есть все данные для расчёта.</li>
+                        <li><b>Или гос.номер и страховая</b> — если эту машину уже страховали по ОСАГО.</li>
+                        <li><b>Или комплект документов:</b> СТС или ПТС, водительские всех допущенных, паспорт страхователя (и собственника, если страхует не он).</li>
+                      </ul>
                     </div>
                   </div>
-          
-                  <div class="acc">
-                    <button class="acc__head" type="button" aria-expanded="false" data-track="acc_what_to_send">
-                      <span>Что прислать для расчёта ОСАГО</span>
-                      <span class="acc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-                    </button>
-                    <div class="acc__body">
-                      <div class="acc__inner">
-                        <div class="steps">
-                          <article class="step">
-                            <h3><span class="step__num">1</span> Предыдущий полис</h3>
-                            <p>Самое простое: пришлите прошлый полис — в нём уже есть все данные для расчёта.</p>
-                          </article>
-                          <article class="step">
-                            <h3><span class="step__num">2</span> Гос.номер и страховая</h3>
-                            <p>Если эту машину уже страховали по ОСАГО — достаточно гос.номера и названия последней страховой компании.</p>
-                          </article>
-                          <article class="step">
-                            <h3><span class="step__num">3</span> Комплект документов</h3>
-                            <ul class="send-docs">
-                              <li>СТС или ПТС</li>
-                              <li>Водительские удостоверения всех допущенных к управлению</li>
-                              <li>Паспорт страхователя — первая страница и прописка</li>
-                              <li>Если страхует не собственник — ещё и паспорт собственника</li>
-                            </ul>
-                          </article>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="send-note">
+                    <span class="send-note__tag">Для вашего удобства</span>
+                    <p>Напишите вид страхования — менеджер пришлёт точный список того, что нужно для расчёта.</p>
+                    <a class="btn btn--primary" href="#" data-modal="lead" data-product="ОСАГО" data-track="cta_send_list">Получить список</a>
                   </div>
                 </div>
         </div>
@@ -359,6 +323,7 @@
             </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
         <button class="btn btn--primary lead__submit" type="submit">Отправить</button>
       </form>
       <div class="lead__done">
@@ -402,6 +367,7 @@
             </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
         <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
       </form>
       <div class="lead__done">

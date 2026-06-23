@@ -117,10 +117,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .header__phone { font-weight: 800; font-size: 15px; letter-spacing: .01em; white-space: nowrap; }
 .header__phone span { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
 
-.burger { display: none; width: 44px; height: 44px; border-radius: 11px; border: 1px solid var(--border-strong); }
-.burger span, .burger span::before, .burger span::after {
-  display: block; width: 18px; height: 2px; background: var(--ink); position: relative; margin: 0 auto; border-radius: 2px;
+.burger { display: none; flex-direction: column; align-items: center; gap: 3px; width: auto; height: auto; padding: 2px; background: none; border: 0; }
+.burger__bars { margin: 7px 0; }
+.burger__bars, .burger__bars::before, .burger__bars::after {
+  display: block; width: 24px; height: 2px; background: var(--ink); position: relative; border-radius: 2px;
 }
-.burger span::before { content: ""; position: absolute; top: -6px; }
-.burger span::after { content: ""; position: absolute; top: 6px; }
+.burger__bars::before { content: ""; position: absolute; top: -7px; }
+.burger__bars::after { content: ""; position: absolute; top: 7px; }
+.burger__label { font-size: 11px; font-weight: 700; letter-spacing: .02em; color: var(--ink-2); line-height: 1; }
 

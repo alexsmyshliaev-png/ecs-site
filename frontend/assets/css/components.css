@@ -101,7 +101,7 @@
 /* На узких экранах бар не помещается в строку (иконки + nowrap-кнопка
    шире ~450px и распирают страницу) — складываем в столбик. */
 @media (max-width: 540px) {
-  .hero__bar { flex-direction: column; align-items: stretch; }
+  .hero__bar { flex-direction: column; align-items: stretch; border-radius: var(--radius); }
   .hero__bar-socials {
     justify-content: center; padding: 10px;
     border-right: none; border-bottom: var(--border-w) solid var(--border);
@@ -295,6 +295,16 @@
 /* ============================================================
    Памятка «как прислать данные на расчёт»
    ============================================================ */
+/* компактный блок «как / что прислать» — два списка-буллета в один блок */
+.send-flat { margin-top: 8px; display: flex; flex-direction: column; gap: 18px; }
+.send-flat__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.send-flat__title { font-size: 16px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); margin-bottom: 12px; }
+.bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.bullets li { position: relative; padding-left: 20px; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+.bullets li::before { content: ""; position: absolute; left: 3px; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.bullets li b { color: var(--ink); font-weight: 700; }
+@media (max-width: 760px) { .send-flat__cols { grid-template-columns: 1fr; gap: 20px; } }
+
 /* раскрывающиеся подзаголовки внутри блока «как прислать данные» */
 .send-acc { margin-top: 6px; }
 .acc { border-top: var(--border-w) solid var(--border); }
@@ -458,7 +468,7 @@
 }
 @media (max-width: 880px) {
   .nav, .header__phone { display: none; }
-  .burger { display: grid; place-items: center; }
+  .burger { display: inline-flex; }
   .stats__inner { grid-template-columns: repeat(2, 1fr); gap: 28px 0; }
   /* в 2 колонки весь левый столбец (нечётные) — без левого бордюра и отступа,
      иначе «0 ₽» во 2-м ряду съезжает относительно «15+» */
@@ -558,7 +568,8 @@
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: var(--ring); }
 .field input.is-invalid { border-color: var(--red); box-shadow: var(--ring); }
 .lead__agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; font-size: 13px; color: var(--muted); line-height: 1.45; }
-.lead__agree input { width: 17px; height: 17px; margin-top: 1px; accent-color: var(--accent); }
+.lead__agree input { width: 17px; height: 17px; margin-top: 1px; accent-color: var(--accent); flex: 0 0 auto; }
+.lead__agree--ad { margin-top: 9px; }
 .lead__submit { margin-top: 20px; width: 100%; }
 .lead__done { display: none; text-align: center; padding: 36px 10px; }
 .lead__done .ok-ic {
@@ -777,7 +788,16 @@
 .product__go { margin-top: 20px; font-size: 14.5px; font-weight: 700; color: var(--accent); }
 .product:hover .product__go { text-decoration: underline; }
 @media (max-width: 980px) { .products { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .products { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  /* компактные карточки на телефоне: иконка слева, текст справа — меньше листать */
+  .products { grid-template-columns: 1fr; gap: 12px; }
+  .product { display: grid; grid-template-columns: 46px 1fr; column-gap: 15px; align-items: start; padding: 18px; }
+  .product__ic { grid-column: 1; grid-row: 1 / span 3; width: 46px; height: 46px; margin-bottom: 0; }
+  .product__ic svg { width: 24px; height: 24px; }
+  .product h3 { grid-column: 2; font-size: 18px; }
+  .product p { grid-column: 2; font-size: 14px; margin-top: 6px; line-height: 1.5; }
+  .product__go { grid-column: 2; margin-top: 12px; font-size: 14px; }
+}
 
 /* список страховых с раскрытием (insurers.html) */
 #insurersList { display: flex; flex-direction: column; gap: 12px; }
@@ -862,9 +882,18 @@
 .raschet-card__more { text-align: center; font-size: 14.5px; font-weight: 700; color: var(--accent); margin-top: 2px; }
 .raschet-card__more:hover { text-decoration: underline; }
 
-/* вариант со встроенным калькулятором Финуслуг */
-.raschet-card--calc { grid-template-columns: 1fr 1.15fr; align-items: center; }
-.raschet-card__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+/* вариант со встроенным калькулятором Финуслуг — одна колонка по центру:
+   описание → калькулятор → кнопки (и на ПК, и на телефоне) */
+.raschet-card--calc {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 22px; grid-template-columns: none;
+}
+.raschet-card--calc .raschet-card__info { max-width: 680px; }
+.raschet-card--calc .raschet-card__list {
+  display: inline-flex; flex-direction: column; gap: 11px; margin-top: 18px; text-align: left;
+}
+.raschet-card--calc .raschet-card__calc { width: 100%; max-width: 720px; }
+.raschet-card__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 0; width: 100%; max-width: 460px; justify-content: center; }
 .raschet-card__btns .btn { flex: 1 1 150px; }
 .raschet-card__calc { min-width: 0; }
 .raschet-card__calc #frame-calculator_wrap { width: 100%; min-height: 300px; border-radius: var(--radius); overflow: hidden; background: var(--surface); }

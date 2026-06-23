@@ -28,7 +28,7 @@
 
     <div class="header__cta">
       <a class="header__phone" href="tel:+78001234567">8 800 123-45-67<span>Ежедневно 9:00–21:00</span></a>
-      <button class="burger" aria-label="Меню"><span></span></button>
+      <button class="burger" aria-label="Меню"><span class="burger__bars"></span><span class="burger__label">Меню</span></button>
     </div>
   </div>
 </header>
@@ -154,15 +154,15 @@
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Сравним 20+ страховых компаний</li>
                   <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Поможем с КБМ и спорными расчётами</li>
                 </ul>
-                <div class="raschet-card__btns">
-                  <a class="btn btn--ghost" href="#" data-modal="cheaper" data-track="raschet_osago_cheaper">Сравнить цену</a>
-                  <a class="btn btn--ghost" href="#" data-modal="lead" data-product="ОСАГО" data-track="raschet_osago_lead">Оставить заявку</a>
-                </div>
               </div>
               <div class="raschet-card__calc">
                 <div id="frame-calculator_wrap" data-id-frame="ce2dab9b-9b5f-4a7d-b1e7-d2442acf96a3" data-adv-p-id="5289dc16e387469434f49f7a2a9b1924"></div>
                 <script type="text/javascript" src="https://finuslugi.ru/osago/partners/main/iframe.bundle.iife.js"></script>
                 <p class="calc-frame__note">Расчёт на платформе Финуслуги. Не загрузился? <a href="#" data-modal="lead" data-product="ОСАГО">Напишите нам</a> — рассчитаем вручную.</p>
+              </div>
+              <div class="raschet-card__btns">
+                <a class="btn btn--ghost" href="#" data-modal="cheaper" data-track="raschet_osago_cheaper">Сравнить цену</a>
+                <a class="btn btn--ghost" href="#" data-modal="lead" data-product="ОСАГО" data-track="raschet_osago_lead">Оставить заявку</a>
               </div>
             </div>
           </div>
@@ -387,6 +387,7 @@
             </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
         <button class="btn btn--primary lead__submit" type="submit">Отправить</button>
       </form>
       <div class="lead__done">
@@ -430,6 +431,7 @@
             </div>
         </div>
         <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
+        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
         <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
       </form>
       <div class="lead__done">

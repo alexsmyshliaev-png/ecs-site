@@ -161,6 +161,26 @@
     });
   }
 
+  /* ---- вкладки: [data-tabs] → .tabs__tab[data-tab] переключают .tabs__panel[data-panel] ---- */
+  function initTabs() {
+    document.querySelectorAll("[data-tabs]").forEach(function (root) {
+      var tabs = root.querySelectorAll(".tabs__tab");
+      var panels = root.querySelectorAll(".tabs__panel");
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var name = tab.getAttribute("data-tab");
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.classList.toggle("is-active", on);
+            t.setAttribute("aria-selected", on ? "true" : "false");
+          });
+          panels.forEach(function (p) { p.classList.toggle("is-active", p.getAttribute("data-panel") === name); });
+          window.ecsTrack && window.ecsTrack("tab_switch", { tab: name });
+        });
+      });
+    });
+  }
+
   /* ---- вложенные аккордеоны (.acc) с плавным раскрытием ---- */
   function initAccordions() {
     document.querySelectorAll(".acc").forEach(function (acc) {
@@ -228,6 +248,6 @@
   }
 
   window.ECS.ui = {
-    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initAccordions(); initInsurers(); }
+    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initTabs(); initAccordions(); initInsurers(); }
   };
 })();

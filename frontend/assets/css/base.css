@@ -24,12 +24,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section--tight { padding: 40px 0; }
 
 .eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  font-size: 12.5px; font-weight: 700; letter-spacing: .14em;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13.5px; font-weight: 800; letter-spacing: .12em;
   text-transform: uppercase; color: var(--accent);
 }
 .eyebrow::before {
-  content: ""; width: 22px; height: 2px; border-radius: 2px;
+  content: ""; width: 30px; height: 3px; border-radius: 2px;
   background: var(--accent);
 }
 
@@ -89,7 +89,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   height: 76px;
 }
 .brand { display: flex; align-items: center; gap: 15px; }
-.brand__logo { display: block; height: 52px; width: auto; }
+.brand__logo { display: block; height: 64px; width: auto; }
+.brand__logo--dark { display: none; }
+[data-theme="dark"] .brand__logo--light { display: none; }
+[data-theme="dark"] .brand__logo--dark { display: block; }
 .brand__badge {
   width: 58px; height: 58px; border-radius: 16px;
   background: var(--accent); color: #fff;
@@ -117,12 +120,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .header__phone { font-weight: 800; font-size: 15px; letter-spacing: .01em; white-space: nowrap; }
 .header__phone span { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
 
-.burger { display: none; flex-direction: row; align-items: center; gap: 8px; width: auto; height: auto; padding: 7px 12px; background: var(--accent); border: 0; border-radius: 10px; }
+.burger { display: none; flex-direction: row; align-items: center; gap: 8px; width: auto; height: auto; padding: 6px 4px; background: none; border: 0; }
 .burger__bars { margin: 5px 0; }
 .burger__bars, .burger__bars::before, .burger__bars::after {
-  display: block; width: 18px; height: 2px; background: #fff; position: relative; border-radius: 2px;
+  display: block; width: 20px; height: 2px; background: var(--ink-2); position: relative; border-radius: 2px;
 }
-.burger__bars::before { content: ""; position: absolute; top: -5px; }
-.burger__bars::after { content: ""; position: absolute; top: 5px; }
-.burger__label { font-size: 13px; font-weight: 700; letter-spacing: .01em; color: #fff; line-height: 1; }
+.burger__bars::before { content: ""; position: absolute; top: -6px; }
+.burger__bars::after { content: ""; position: absolute; top: 6px; }
+.burger__label { font-size: 14px; font-weight: 700; letter-spacing: .01em; color: var(--ink-2); line-height: 1; }
 

@@ -810,20 +810,31 @@
 .product:hover::before { width: 100%; }
 .product__ic { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); margin-bottom: 22px; }
 .product__ic svg { width: 28px; height: 28px; }
+.product__cat { display: none; }            /* категория-надзаголовок — только на мобильной сетке */
+.product--all { display: none; }            /* красная карточка-CTA — только на мобильной сетке */
 .product h3 { font-size: 22px; font-weight: 800; letter-spacing: -.015em; }
 .product p { color: var(--muted); font-size: 15.5px; margin-top: 11px; line-height: 1.55; flex: 1 1 auto; }
 .product__go { margin-top: 20px; font-size: 14.5px; font-weight: 700; color: var(--accent); }
 .product:hover .product__go { text-decoration: underline; }
 @media (max-width: 980px) { .products { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
-  /* компактные карточки на телефоне: иконка слева, текст справа — меньше листать */
-  .products { grid-template-columns: 1fr; gap: 12px; }
-  .product { display: grid; grid-template-columns: 46px 1fr; column-gap: 15px; align-items: start; padding: 18px; }
-  .product__ic { grid-column: 1; grid-row: 1 / span 3; width: 46px; height: 46px; margin-bottom: 0; }
-  .product__ic svg { width: 24px; height: 24px; }
-  .product h3 { grid-column: 2; font-size: 18px; }
-  .product p { grid-column: 2; font-size: 14px; margin-top: 6px; line-height: 1.5; }
-  .product__go { grid-column: 2; margin-top: 12px; font-size: 14px; }
+  /* плиточная сетка на телефоне: категория + название сверху, иконка в углу */
+  .products { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .product { display: block; position: relative; min-height: 150px; padding: 16px 16px 14px; }
+  .product p, .product__go { display: none; }
+  .product__cat { display: block; font-size: 11.5px; font-weight: 600; color: var(--muted); margin-bottom: 3px; }
+  .product h3 { font-size: 15.5px; line-height: 1.2; }
+  .product__ic {
+    position: absolute; right: 12px; bottom: 12px;
+    width: 56px; height: 56px; border-radius: 50%; margin-bottom: 0;
+    background: rgba(230,0,35,.08); color: rgba(230,0,35,.5);
+  }
+  .product__ic svg { width: 30px; height: 30px; }
+  /* красная карточка-CTA «рассчитать стоимость» */
+  .product--all { display: block; background: var(--accent); border-color: var(--accent); }
+  .product--all::before { display: none; }
+  .product--all h3 { color: var(--on-accent); }
+  .product--all .product__ic { background: rgba(255,255,255,.18); color: var(--on-accent); }
 }
 
 /* список страховых с раскрытием (insurers.html) */

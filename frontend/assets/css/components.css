@@ -682,8 +682,31 @@
 .biz-card::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--accent); transition: width .3s ease; }
 .biz-card:hover { background: var(--surface-2); }
 .biz-card:hover::before { width: 100%; }
+.biz-card__ic { width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); margin-bottom: 18px; }
+.biz-card__ic svg { width: 26px; height: 26px; }
 .biz-card h3 { font-size: 20px; font-weight: 700; margin-top: 0; letter-spacing: -.01em; }
 .biz-card p { color: var(--muted); font-size: 14.5px; margin-top: 11px; line-height: 1.6; }
+
+/* быстрые действия — плитки «запросить предложение / продлить / страховой случай» */
+.biz-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.biz-action {
+  display: flex; align-items: center; gap: 16px; padding: 22px 24px;
+  background: var(--surface); border: var(--border-w) solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.biz-action:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.biz-action__ic { flex: 0 0 46px; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); }
+.biz-action__ic svg { width: 24px; height: 24px; }
+.biz-action__txt { font-weight: 700; font-size: 16px; color: var(--ink); line-height: 1.25; }
+.biz-action__arr { width: 20px; height: 20px; margin-left: auto; flex: 0 0 auto; color: var(--muted); transition: transform .2s ease, color .2s ease; }
+.biz-action:hover .biz-action__arr { transform: translateX(4px); color: var(--accent); }
+
+/* блок «сколько стоит» — заголовок слева, факторы-буллеты справа */
+.biz-price { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.biz-price__head h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-top: 12px; }
+.biz-price__head p { color: var(--muted); font-size: 16px; margin-top: 14px; line-height: 1.55; }
+.biz-price__head .btn { margin-top: 24px; }
+.biz-price__list { background: var(--surface-2); border-radius: var(--radius); padding: 30px 32px; gap: 16px; }
 
 /* процесс — крупные пронумерованные шаги с акцентной чертой */
 .biz-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: bizstep; }
@@ -699,6 +722,10 @@
 @media (max-width: 1080px) {
   .biz-services { grid-template-columns: repeat(2, 1fr); }
   .biz-process { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 920px) {
+  .biz-actions { grid-template-columns: 1fr; }
+  .biz-price { grid-template-columns: 1fr; gap: 26px; }
 }
 @media (max-width: 640px) {
   .gallery { grid-template-columns: 1fr 1fr; }
@@ -882,18 +909,14 @@
 .raschet-card__more { text-align: center; font-size: 14.5px; font-weight: 700; color: var(--accent); margin-top: 2px; }
 .raschet-card__more:hover { text-decoration: underline; }
 
-/* вариант со встроенным калькулятором Финуслуг — одна колонка по центру:
-   описание → калькулятор → кнопки (и на ПК, и на телефоне) */
+/* вариант со встроенным калькулятором Финуслуг — на ПК текст слева, калькулятор справа;
+   на телефоне в столбик: описание → калькулятор → кнопки */
 .raschet-card--calc {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  gap: 22px; grid-template-columns: none;
+  display: grid; grid-template-columns: 1fr 1.15fr; align-items: center; gap: 34px;
 }
-.raschet-card--calc .raschet-card__info { max-width: 680px; }
-.raschet-card--calc .raschet-card__list {
-  display: inline-flex; flex-direction: column; gap: 11px; margin-top: 18px; text-align: left;
-}
-.raschet-card--calc .raschet-card__calc { width: 100%; max-width: 720px; }
-.raschet-card__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 0; width: 100%; max-width: 460px; justify-content: center; }
+.raschet-card--calc .raschet-card__info { grid-column: 1; grid-row: 1; }
+.raschet-card--calc .raschet-card__calc { grid-column: 2; grid-row: 1 / span 2; }
+.raschet-card__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; grid-column: 1; grid-row: 2; }
 .raschet-card__btns .btn { flex: 1 1 150px; }
 .raschet-card__calc { min-width: 0; }
 .raschet-card__calc #frame-calculator_wrap { width: 100%; min-height: 300px; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
@@ -903,5 +926,9 @@
 @media (max-width: 760px) {
   .raschet-card,
   .raschet-card--calc { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+  /* на телефоне — естественный порядок DOM: описание → калькулятор → кнопки */
+  .raschet-card--calc .raschet-card__info,
+  .raschet-card--calc .raschet-card__calc,
+  .raschet-card--calc .raschet-card__btns { grid-column: auto; grid-row: auto; }
   .tabs__tab { padding: 12px 16px; font-size: 15.5px; }
 }

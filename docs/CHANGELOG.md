@@ -10,6 +10,12 @@
 - `frontend/sitemap.xml` — 9 страниц с приоритетами (боевой домен `edincenter.ru`).
 - `frontend/assets/js/config.js` — `siteUrl: "https://edincenter.ru"` (единый источник домена для JSON-LD).
 - `frontend/assets/js/ui.js` — `initSEO()`: инъекция JSON-LD — `InsuranceAgency` на главной (из config: телефон/email/адрес/geo/sameAs), `FAQPage` из `ECS_FAQ`, `BreadcrumbList` на подстраницах.
+- `frontend/assets/fonts/inter-{cyrillic,latin,latin-ext}.woff2` — self-hosted шрифт Inter (вариативный, по сабсетам). `@font-face` с `font-display: swap` в `tokens.css`, `preload` cyrillic+latin на всех страницах.
+
+### Changed
+- Все 9 страниц + `404.html` — удалены ссылки на Google Fonts (fonts.googleapis.com/gstatic.com), добавлен `preload` локальных woff2. Выигрыш по LCP и независимость от Google CDN (нестабилен для РФ).
+- `frontend/_headers`, `deploy/nginx-security-headers.conf` — из CSP убраны `fonts.googleapis.com`/`fonts.gstatic.com` (шрифт теперь self-hosted).
+- `frontend/build_share.py` — комментарий: шрифт встраивается в offline-сборку (был «нужен интернет»).
 
 ## [2026-07-07] — Этап 2: публикация (безопасность, юридика)
 

@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [2026-07-07] — Этап 3: SEO и производительность
+> Боевой домен — `edincenter.ru` (из privacy.html).
+
+### Added
+- `frontend/robots.txt` — индексация разрешена, `Disallow: /404.html`, ссылка на sitemap.
+- `frontend/sitemap.xml` — 9 страниц с приоритетами (боевой домен `edincenter.ru`).
+
 ## [2026-07-07] — Этап 2: публикация (безопасность, юридика)
 
 ### Added

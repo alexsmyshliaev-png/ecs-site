@@ -1,119 +1,133 @@
 /* ============================================================
-   ЕЦС · leads.js — приём заявок.
-   Порядок отправки лида:
-   1) наш бэкенд /api/leads (он сам перешлёт в Битрикс24) —
-      вебхук не светится в браузере;
-   2) если бэкенда нет — прямой вебхук Битрикс24 из config.js;
-   3) если нет и его — лид сохраняется в localStorage,
-      чтобы ни одна заявка не потерялась.
+   ЕЦС · leads.js — интеграция с CRM-формами Битрикс24.
+   Заявку создаёт форма Битрикс24 напрямую в CRM. Собственного
+   бэкенда и вебхука в браузере нет, ПДн в localStorage не пишем
+   (ADR 2026-07-07, docs/architecture.md). Здесь мы только:
+     1) монтируем embed формы в слоты [data-b24form] из config.b24forms;
+     2) через b24:form:init заполняем скрытые поля (product/utm/…);
+     3) транслируем события формы в ecsTrack (lead_form_open / lead_success);
+     4) если форма не настроена или не загрузилась — показываем фолбэк
+        «позвоните / напишите» (bullet 1.2 плана).
+
+   TODO(1.1): пока config.b24forms.*.{id,code,loader} пустые — везде
+   показывается фолбэк. Заполните их из embed-кода формы (см. config.js).
+   TODO(проверить при живом подключении, helpdesk 12853296): точные имена
+   событий формы (b24:form:init / :submit / :success) и форму detail —
+   ниже используется defensively (e.detail.object || e.detail).
    ============================================================ */
 (function () {
   "use strict";
   window.ECS = window.ECS || {};
   var CFG = window.ECS_CONFIG || {};
+  var FALLBACK_MS = 5000;
 
-  function submit(data) {
-    var utm = window.ECS.utm ? window.ECS.utm.get() : {};
-    var lead = Object.assign({}, data, {
-      utm_last: utm.last || null,
-      utm_first: utm.first || null,
-      referrer: utm.referrer || "",
-      page: location.href,
-      ts: new Date().toISOString()
+  /* ---- скрытые поля, которые кладём в форму ---- */
+  function hiddenFields(slot) {
+    var utm = (window.ECS.utm && window.ECS.utm.get()) || {};
+    var f = {
+      product: slot.getAttribute("data-product") || document.body.getAttribute("data-product") || "",
+      form_slug: slot.getAttribute("data-form-slug") || slot.getAttribute("data-b24form") || "",
+      page_url: location.origin + location.pathname, // без query/hash — не тащим PII из адреса
+      utm_first: utm.first ? JSON.stringify(utm.first) : "",
+      referrer_first: utm.referrer || ""
+    };
+    // номер из калькулятора ОСАГО по госномеру (сохраняется страницей в ecs_plate)
+    try {
+      var plate = localStorage.getItem("ecs_plate");
+      if (plate) f.plate = plate;
+    } catch (e) {}
+    return f;
+  }
+
+  /* ---- ym clientID приходит асинхронно — до сабмита успеваем ---- */
+  function withClientId(cb) {
+    if (CFG.yandexMetrikaId && typeof window.ym === "function") {
+      try { window.ym(CFG.yandexMetrikaId, "getClientID", cb); return; } catch (e) {}
+    }
+    cb("");
+  }
+
+  function fillForm(form, slot) {
+    if (!form || typeof form.setProperty !== "function") return;
+    var f = hiddenFields(slot);
+    Object.keys(f).forEach(function (k) { try { form.setProperty(k, f[k]); } catch (e) {} });
+    withClientId(function (id) { try { form.setProperty("ym_client_id", id || ""); } catch (e) {} });
+  }
+
+  function slotOf(e) {
+    var t = e.target;
+    return (t && t.closest) ? t.closest("[data-b24form]") : null;
+  }
+
+  /* ---- события форм Битрикс24 ---- */
+  function bindFormEvents() {
+    document.addEventListener("b24:form:init", function (e) {
+      var form = (e.detail && (e.detail.object || e.detail)) || null;
+      var slot = slotOf(e) || document.querySelector("[data-b24form].is-mounted:not(.is-loaded)");
+      if (slot) { slot.classList.add("is-loaded"); fillForm(form, slot); }
+      window.ecsTrack && window.ecsTrack("lead_form_open", { form: slot ? slot.getAttribute("data-form-slug") : "" });
     });
 
-    window.ecsTrack("lead_submit", { form: data.form || "default", product: data.product || "" });
-
-    if (CFG.apiUrl) {
-      return fetch(CFG.apiUrl.replace(/\/$/, "") + "/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(lead)
-      }).catch(function (err) {
-        console.warn("API lead error, fallback:", err);
-        return fallback(lead);
-      });
-    }
-    return fallback(lead);
-  }
-
-  function fallback(lead) {
-    if (CFG.bitrixWebhookUrl) {
-      // crm.item.add с entityTypeId=1 (лид) — crm.lead.add устарел
-      var u = lead.utm_last || lead.utm_first || {};
-      var fields = {
-        title: "Сайт ЕЦС: " + (lead.product || "заявка") + " — " + (lead.name || ""),
-        name: lead.name || "",
-        comments: (lead.comment || "") + "\nСтраница: " + lead.page,
-        sourceId: "WEB",
-        utmSource: u.utm_source || "",
-        utmMedium: u.utm_medium || "",
-        utmCampaign: u.utm_campaign || "",
-        utmContent: u.utm_content || "",
-        utmTerm: u.utm_term || ""
-      };
-      var fm = [];
-      if (lead.phone) fm.push({ typeId: "PHONE", valueType: "WORK", value: lead.phone });
-      if (lead.email) fm.push({ typeId: "EMAIL", valueType: "WORK", value: lead.email });
-      if (fm.length) fields.fm = fm;
-      return fetch(CFG.bitrixWebhookUrl.replace(/\/$/, "") + "/crm.item.add.json", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ entityTypeId: 1, fields: fields })
-      }).catch(function (err) { console.warn("Bitrix24 lead error:", err); });
-    }
-    try {
-      var q = JSON.parse(localStorage.getItem("ecs_leads") || "[]");
-      q.push(lead);
-      localStorage.setItem("ecs_leads", JSON.stringify(q));
-    } catch (e) {}
-    return Promise.resolve();
-  }
-
-  /* ---- формы form.js-lead-form ---- */
-  function initForms() {
-    document.querySelectorAll("form.js-lead-form").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var phone = form.querySelector('[name="phone"]');
-        if (phone && phone.value.replace(/\D/g, "").length < 10) {
-          phone.classList.add("is-invalid");
-          phone.focus();
-          return;
-        }
-        if (phone) phone.classList.remove("is-invalid");
-
-        var data = { form: form.getAttribute("data-form") || "lead", product: form.getAttribute("data-product") || "" };
-        new FormData(form).forEach(function (v, k) { if (k !== "agree") data[k] = v; });
-
-        var btn = form.querySelector('[type="submit"]');
-        if (btn) { btn.disabled = true; btn.textContent = "Отправляем…"; }
-
-        submit(data).then(function () {
-          var box = form.closest(".lead");
-          if (box) box.classList.add("is-done");
-          else { form.innerHTML = '<p style="font-weight:700">Спасибо! Мы свяжемся с вами в ближайшее время.</p>'; }
+    // успешная отправка (имя события сверить, helpdesk 12853296)
+    ["b24:form:submit", "b24:form:success"].forEach(function (evt) {
+      document.addEventListener(evt, function (e) {
+        if (evt === "b24:form:submit") return; // считаем конверсией только success
+        var slot = slotOf(e);
+        window.ecsTrack && window.ecsTrack("lead_success", {
+          form: slot ? slot.getAttribute("data-form-slug") : "",
+          product: slot ? slot.getAttribute("data-product") : ""
         });
       });
     });
+  }
 
-    // лёгкая маска телефона
-    document.querySelectorAll('input[name="phone"]').forEach(function (inp) {
-      inp.addEventListener("input", function () {
-        var d = inp.value.replace(/\D/g, "").slice(0, 11);
-        if (d.startsWith("8")) d = "7" + d.slice(1);
-        if (!d) { inp.value = ""; return; }
-        if (!d.startsWith("7")) d = "7" + d;
-        var s = "+7";
-        if (d.length > 1) s += " (" + d.slice(1, 4);
-        if (d.length >= 4) s += ") " + d.slice(4, 7);
-        if (d.length >= 7) s += "-" + d.slice(7, 9);
-        if (d.length >= 9) s += "-" + d.slice(9, 11);
-        inp.value = s;
-      });
+  /* ---- монтирование формы в слот ---- */
+  function mount(slot) {
+    if (!slot || slot.classList.contains("is-mounted") || slot.classList.contains("is-fallback")) return;
+    var cfg = (CFG.b24forms && CFG.b24forms[slot.getAttribute("data-b24form")]) || {};
+    if (!cfg.id || !cfg.code || !cfg.loader) { showFallback(slot); return; } // форма ещё не настроена
+
+    slot.classList.add("is-mounted");
+    // маркер для загрузчика Б24 (без inline-JS — дружелюбнее к CSP этапа 2)
+    var marker = document.createElement("script");
+    marker.setAttribute("data-b24-form", "inline/" + cfg.id + "/" + cfg.code);
+    marker.setAttribute("data-skip-moving", "true");
+    slot.appendChild(marker);
+    var loader = document.createElement("script");
+    loader.async = true;
+    loader.src = cfg.loader + (cfg.loader.indexOf("?") > -1 ? "&" : "?") + ((Date.now() / 180000) | 0);
+    slot.appendChild(loader);
+
+    setTimeout(function () {
+      if (!slot.classList.contains("is-loaded")) showFallback(slot);
+    }, FALLBACK_MS);
+  }
+
+  /* ---- фолбэк: CDN недоступен или форма не настроена ---- */
+  function showFallback(slot) {
+    if (slot.classList.contains("is-fallback")) return;
+    slot.classList.add("is-fallback");
+    var links = [];
+    if (CFG.whatsapp) links.push('<a href="' + CFG.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a>');
+    if (CFG.telegram) links.push('<a href="' + CFG.telegram + '" target="_blank" rel="noopener">Telegram</a>');
+    slot.innerHTML =
+      '<div class="b24form__fallback">' +
+        "<p><b>Оставьте заявку по телефону или в мессенджере</b></p>" +
+        (CFG.phone ? '<p class="b24form__phone"><a href="tel:' + (CFG.phoneHref || "") + '">' + CFG.phone + "</a></p>" : "") +
+        (links.length ? "<p>или напишите нам: " + links.join(" · ") + "</p>" : "") +
+      "</div>";
+    window.ecsTrack && window.ecsTrack("b24form_failed", {
+      form: slot.getAttribute("data-form-slug") || slot.getAttribute("data-b24form") || ""
     });
   }
 
-  window.ECS.leads = { submit: submit, init: initForms };
-  window.ecsLead = submit; // короткий алиас
+  function init() {
+    bindFormEvents();
+    // немодальные слоты монтируем сразу; модальные — лениво при открытии (ui.js)
+    document.querySelectorAll("[data-b24form]").forEach(function (slot) {
+      if (!slot.closest(".modal")) mount(slot);
+    });
+  }
+
+  window.ECS.leads = { init: init, mount: mount };
 })();

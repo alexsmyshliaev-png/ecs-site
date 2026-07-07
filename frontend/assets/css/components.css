@@ -579,6 +579,18 @@
 .lead.is-done form { display: none; }
 .lead.is-done .lead__done { display: block; }
 
+/* --- CRM-форма Битрикс24 (слот + фолбэк) --- */
+.b24form { margin-top: 22px; min-height: 40px; }
+.b24form__fallback {
+  border: 1px solid var(--line, #e6e6ea); border-radius: 16px; padding: 22px 20px;
+  text-align: center; background: color-mix(in srgb, var(--brand, #e60023) 4%, transparent);
+}
+.b24form__fallback p { margin: 6px 0; color: var(--muted, #6b6b73); }
+.b24form__fallback p:first-child { color: inherit; }
+.b24form__phone a { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; color: var(--brand, #e60023); }
+.b24form__fallback a { color: var(--brand, #e60023); text-decoration: none; }
+.b24form__fallback a:hover { text-decoration: underline; }
+
 /* --- modal --- */
 .modal { position: fixed; inset: 0; z-index: 90; display: none; align-items: center; justify-content: center; padding: 20px; }
 .modal.is-open { display: flex; }

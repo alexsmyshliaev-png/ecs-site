@@ -10,6 +10,14 @@
 ### Changed
 - `frontend/assets/js/analytics.js` — убрана серверная аналитика: удалена `sendToBackend()` и отправка на `/api/events`. События идут только в `dataLayer` (GTM) и Яндекс.Метрику (`reachGoal`).
 - `frontend/assets/js/config.js` — удалены `apiUrl` и `bitrixWebhookUrl` (сервер и вебхук больше не используются). Добавлена секция `b24forms: { lead, office }` с `{id, code, loader}` и инструкцией, где взять значения из embed-кода CRM-формы. `bitrixWidgetUrl` (виджет чата/звонка) сохранён.
+- `frontend/assets/js/ui.js` — модалки монтируют CRM-форму лениво при открытии (в слот `[data-b24form]`), вместо простановки `data-product` на самописную `<form>`.
+
+### Removed
+- `frontend/assets/js/leads.js` — полностью переписан: удалены отправка на `/api/leads`, прямой вебхук Битрикс24 и localStorage-фолбэк лида (ПДн в localStorage больше не пишутся). Удалены самописная маска телефона и обработчик `form.js-lead-form`.
+
+### Added
+- `frontend/assets/js/leads.js` — модуль интеграции с CRM-формами Битрикс24: монтирует embed в слоты `[data-b24form]` из `config.b24forms`; по `b24:form:init` заполняет скрытые поля (`product`, `form_slug`, `page_url`, `utm_first`, `referrer_first`, `ym_client_id`, `plate`); транслирует события формы в `ecsTrack` (`lead_form_open`, `lead_success`); при ненастроенной/незагрузившейся форме (таймаут 5 с) показывает фолбэк «позвоните/напишите» + `ecsTrack("b24form_failed")`.
+- `frontend/assets/css/components.css` — стили слота `.b24form` и блока-фолбэка `.b24form__fallback`.
 
 ## [2026-06-11] — Hero: калькулятор/инфо справа на всех страницах, polis812
 ### Added

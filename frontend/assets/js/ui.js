@@ -60,8 +60,11 @@
     function open(modal, product) {
       modal.classList.add("is-open");
       document.body.style.overflow = "hidden";
-      var f = modal.querySelector("form");
-      if (f && product) f.setAttribute("data-product", product);
+      // CRM-форму Битрикс24 монтируем лениво — при первом открытии модалки
+      modal.querySelectorAll("[data-b24form]").forEach(function (slot) {
+        if (product) slot.setAttribute("data-product", product);
+        if (window.ECS.leads && window.ECS.leads.mount) window.ECS.leads.mount(slot);
+      });
       window.ecsTrack("lead_modal_open", { product: product || "", modal: modal.id });
     }
     function closeAll() {

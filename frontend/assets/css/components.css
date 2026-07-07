@@ -582,14 +582,30 @@
 /* --- CRM-форма Битрикс24 (слот + фолбэк) --- */
 .b24form { margin-top: 22px; min-height: 40px; }
 .b24form__fallback {
-  border: 1px solid var(--line, #e6e6ea); border-radius: 16px; padding: 22px 20px;
-  text-align: center; background: color-mix(in srgb, var(--brand, #e60023) 4%, transparent);
+  border: 1px solid var(--border); border-radius: var(--radius, 16px); padding: 22px 20px;
+  text-align: center; background: color-mix(in srgb, var(--red) 4%, transparent);
 }
-.b24form__fallback p { margin: 6px 0; color: var(--muted, #6b6b73); }
+.b24form__fallback p { margin: 6px 0; color: var(--muted); }
 .b24form__fallback p:first-child { color: inherit; }
-.b24form__phone a { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; color: var(--brand, #e60023); }
-.b24form__fallback a { color: var(--brand, #e60023); text-decoration: none; }
+.b24form__phone a { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; color: var(--red); }
+.b24form__fallback a { color: var(--red); text-decoration: none; }
 .b24form__fallback a:hover { text-decoration: underline; }
+
+/* --- cookie-баннер согласия --- */
+.cookie {
+  position: fixed; left: 22px; bottom: 22px; right: auto; z-index: 100;
+  max-width: 460px; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow-lg, 0 18px 50px rgba(0, 0, 0, .18)); padding: 18px 20px;
+}
+.cookie__text { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 0 0 14px; }
+.cookie__text a { color: var(--red); }
+.cookie__actions { display: flex; gap: 10px; }
+.cookie__actions .btn { flex: 0 0 auto; }
+@media (max-width: 560px) {
+  .cookie { left: 12px; right: 12px; bottom: 88px; max-width: none; } /* над плавающей кнопкой */
+  .cookie__actions .btn { flex: 1 1 0; }
+}
 
 /* --- modal --- */
 .modal { position: fixed; inset: 0; z-index: 90; display: none; align-items: center; justify-content: center; padding: 20px; }

@@ -22,6 +22,9 @@
 - `frontend/assets/img/og.png` — брендированная OG-картинка 1200×630.
 - `frontend/favicon.svg`, `frontend/favicon.ico`, `frontend/apple-touch-icon.png`, `frontend/assets/img/icon-{192,512}.png`, `frontend/site.webmanifest` — favicon-набор + манифест (красный знак «ЕЦС»).
 
+### Added (передача работы)
+- `docs/HANDOFF.md` — подробная инструкция для следующей сессии: контекст и инварианты проекта, особенности окружения (нет node, кириллический путь), оставшиеся задачи с точными файлами/разметкой/приёмкой (calc.js, соц-иконки, Этап 4: utm.js/GTM/события/контакты из config, Этап 5: CLAUDE.md/docs/Eleventy), таблица owner-blocked задач, рецепты самопроверки.
+
 ### Changed (логотипы страховых → SVG)
 - `frontend/assets/img/logo-*.svg` — 16 логотипов страховых в SVG (исходники владельца из «Страховые лого/», папка добавлена в .gitignore): прежние 9 + новые Абсолют, Гелиос, Зетта, ПАРИ, Сбер, Совкомбанк, Югория.
 - `index.html`, `osago.html` — маркиза партнёров пересобрана: 16 логотипов × 2 трека, каждому `<img>` заданы `width`/`height` (из пропорций SVG, высота 42) и `loading="lazy"`.

@@ -7,6 +7,8 @@
 ### Added
 - `frontend/assets/js/analytics.js` — cookie-баннер согласия: Яндекс.Метрика (Вебвизор) и GA4 инициализируются **только после явного согласия** (152-ФЗ). До выбора показывается лёгкий самописный баннер со ссылкой на `privacy.html`; выбор `granted/denied` хранится в localStorage. Баннер не показывается, если аналитика не настроена (localhost). `ECS.analytics.showConsent()` — переоткрыть баннер (для ссылки «Настройки cookie»).
 - `frontend/assets/css/components.css` — стили `.cookie` (карточка снизу-слева; на мобильном — над плавающей кнопкой).
+- `frontend/404.html` — страница «не найдено» в бренд-стиле (root-абсолютные пути к ассетам, `noindex`, ссылки на ключевые разделы).
+- `frontend/_headers` (Cloudflare Pages / Netlify) и `deploy/nginx-security-headers.conf` (nginx) — заголовки безопасности: CSP (allowlist Метрика/Битрикс24/Финуслуги/polis812/GTM/Карты), HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options. `deploy/README.md` — варианты хостинга, порядок запуска, CSP через Report-Only, noindex для github.io.
 
 ### Fixed
 - `frontend/assets/css/components.css` — стили `.b24form`/`.b24form__fallback` переведены на реальные токены темы (`--red`, `--border`, `--surface`, `--muted`) вместо несуществующих `--brand`/`--line`.

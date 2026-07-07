@@ -1,0 +1,21 @@
+# HTTP-заголовки для статик-хостинга (Cloudflare Pages / Netlify).
+# Формат «_headers»: путь, затем заголовки с отступом. Комментарии — со «#».
+# Для nginx/Apache — см. deploy/nginx-security-headers.conf.
+#
+# CSP: allowlist сторонних сервисов сайта (Метрика, CRM-формы/виджет Битрикс24,
+# калькуляторы Финуслуг/polis812, GTM/GA4, Яндекс.Карты, шрифт Inter с Google —
+# последнее уйдёт после self-host шрифта, Этап 3).
+# ВНИМАНИЕ: перед включением enforce прогоните пару дней в режиме
+# Content-Security-Policy-Report-Only и проверьте, что формы/калькуляторы/карта живы.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' mc.yandex.ru yastatic.net cdn-ru.bitrix24.ru *.bitrix24.ru agents.finuslugi.ru *.finuslugi.ru polis812.ru *.polis812.ru www.googletagmanager.com api-maps.yandex.ru; style-src 'self' 'unsafe-inline' fonts.googleapis.com yastatic.net; font-src 'self' data: fonts.gstatic.com; img-src 'self' data: mc.yandex.ru yastatic.net *.bitrix24.ru *.finuslugi.ru *.polis812.ru *.maps.yandex.net api-maps.yandex.ru www.googletagmanager.com www.google-analytics.com; connect-src 'self' mc.yandex.ru *.bitrix24.ru *.finuslugi.ru *.polis812.ru *.maps.yandex.net api-maps.yandex.ru www.google-analytics.com region1.google-analytics.com; frame-src 'self' *.bitrix24.ru *.finuslugi.ru *.polis812.ru; frame-ancestors 'self'; base-uri 'self'; form-action 'self' *.bitrix24.ru; object-src 'none'; upgrade-insecure-requests
+
+# Долгий кэш для статических ассетов (у них хешируемые/редкие изменения)
+/assets/*
+  Cache-Control: public, max-age=31536000

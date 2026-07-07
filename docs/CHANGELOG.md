@@ -22,6 +22,11 @@
 - `frontend/assets/img/og.png` — брендированная OG-картинка 1200×630.
 - `frontend/favicon.svg`, `frontend/favicon.ico`, `frontend/apple-touch-icon.png`, `frontend/assets/img/icon-{192,512}.png`, `frontend/site.webmanifest` — favicon-набор + манифест (красный знак «ЕЦС»).
 
+### Changed (логотипы страховых → SVG)
+- `frontend/assets/img/logo-*.svg` — 16 логотипов страховых в SVG (исходники владельца из «Страховые лого/», папка добавлена в .gitignore): прежние 9 + новые Абсолют, Гелиос, Зетта, ПАРИ, Сбер, Совкомбанк, Югория.
+- `index.html`, `osago.html` — маркиза партнёров пересобрана: 16 логотипов × 2 трека, каждому `<img>` заданы `width`/`height` (из пропорций SVG, высота 42) и `loading="lazy"`.
+- Удалены 9 устаревших PNG-логотипов (до 82 КБ каждый) — вектор чётче и легче.
+
 ## [2026-07-07] — Этап 2: публикация (безопасность, юридика)
 
 ### Added

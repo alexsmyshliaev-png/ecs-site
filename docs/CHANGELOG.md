@@ -10,6 +10,9 @@
 - `frontend/404.html` — страница «не найдено» в бренд-стиле (root-абсолютные пути к ассетам, `noindex`, ссылки на ключевые разделы).
 - `frontend/_headers` (Cloudflare Pages / Netlify) и `deploy/nginx-security-headers.conf` (nginx) — заголовки безопасности: CSP (allowlist Метрика/Битрикс24/Финуслуги/polis812/GTM/Карты), HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-Frame-Options. `deploy/README.md` — варианты хостинга, порядок запуска, CSP через Report-Only, noindex для github.io.
 
+### Changed
+- `frontend/privacy.html` — добавлен раздел 12 «Файлы cookie, веб-аналитика и передача обработчикам»: Яндекс.Метрика/Вебвизор с согласием через баннер, CRM-формы Битрикс24 как обработчик заявок (без собственной серверной БД и без ПДн в браузере), перечень обработчиков. «Заключительные положения» — раздел 13.
+
 ### Fixed
 - `frontend/assets/css/components.css` — стили `.b24form`/`.b24form__fallback` переведены на реальные токены темы (`--red`, `--border`, `--surface`, `--muted`) вместо несуществующих `--brand`/`--line`.
 

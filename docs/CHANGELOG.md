@@ -16,6 +16,11 @@
 - Все 9 страниц + `404.html` — удалены ссылки на Google Fonts (fonts.googleapis.com/gstatic.com), добавлен `preload` локальных woff2. Выигрыш по LCP и независимость от Google CDN (нестабилен для РФ).
 - `frontend/_headers`, `deploy/nginx-security-headers.conf` — из CSP убраны `fonts.googleapis.com`/`fonts.gstatic.com` (шрифт теперь self-hosted).
 - `frontend/build_share.py` — комментарий: шрифт встраивается в offline-сборку (был «нужен интернет»).
+- Все 9 страниц — добавлены `canonical` (абсолютный URL `edincenter.ru`), OpenGraph (type/site_name/locale/title/description/url/image), Twitter Cards (`summary_large_image`), favicon-набор и `theme-color`; на `404.html` — favicon (без OG, noindex).
+
+### Added (SEO-ассеты)
+- `frontend/assets/img/og.png` — брендированная OG-картинка 1200×630.
+- `frontend/favicon.svg`, `frontend/favicon.ico`, `frontend/apple-touch-icon.png`, `frontend/assets/img/icon-{192,512}.png`, `frontend/site.webmanifest` — favicon-набор + манифест (красный знак «ЕЦС»).
 
 ## [2026-07-07] — Этап 2: публикация (безопасность, юридика)
 

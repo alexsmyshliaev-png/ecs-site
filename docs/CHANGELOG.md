@@ -9,6 +9,7 @@
 
 ### Changed
 - `frontend/assets/js/analytics.js` — убрана серверная аналитика: удалена `sendToBackend()` и отправка на `/api/events`. События идут только в `dataLayer` (GTM) и Яндекс.Метрику (`reachGoal`).
+- `frontend/assets/js/config.js` — удалены `apiUrl` и `bitrixWebhookUrl` (сервер и вебхук больше не используются). Добавлена секция `b24forms: { lead, office }` с `{id, code, loader}` и инструкцией, где взять значения из embed-кода CRM-формы. `bitrixWidgetUrl` (виджет чата/звонка) сохранён.
 
 ## [2026-06-11] — Hero: калькулятор/инфо справа на всех страницах, polis812
 ### Added

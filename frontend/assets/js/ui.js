@@ -250,7 +250,57 @@
     });
   }
 
+  /* ---- JSON-LD (schema.org): InsuranceAgency / FAQPage / BreadcrumbList ---- */
+  function initSEO() {
+    var base = (CFG.siteUrl || location.origin).replace(/\/$/, "");
+    var isHome = /^\/(index\.html)?$/.test(location.pathname) || document.body.getAttribute("data-product") === "Главная";
+    var strip = function (t) { return String(t).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(); };
+    function emit(obj) {
+      var s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(obj);
+      document.head.appendChild(s);
+    }
+
+    if (isHome) {
+      var sameAs = [CFG.telegram, CFG.whatsapp, CFG.vk, CFG.max].filter(Boolean);
+      var org = {
+        "@context": "https://schema.org", "@type": "InsuranceAgency",
+        name: "ЕЦС — Единый центр страхования", url: base + "/", image: base + "/assets/img/og.png"
+      };
+      if (CFG.phoneHref) org.telephone = CFG.phoneHref;
+      if (CFG.email) org.email = CFG.email;
+      if (CFG.address) org.address = { "@type": "PostalAddress", addressLocality: CFG.address, addressCountry: "RU" };
+      if (CFG.officeCoords && CFG.officeCoords.length === 2)
+        org.geo = { "@type": "GeoCoordinates", latitude: CFG.officeCoords[0], longitude: CFG.officeCoords[1] };
+      if (CFG.workHours) org.openingHours = "Mo-Su 09:00-21:00";
+      if (sameAs.length) org.sameAs = sameAs;
+      org.areaServed = "Санкт-Петербург";
+      emit(org);
+    } else {
+      var h1 = document.querySelector("h1");
+      var name = h1 ? strip(h1.textContent).slice(0, 80) : document.title;
+      emit({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Главная", item: base + "/" },
+          { "@type": "ListItem", position: 2, name: name, item: base + location.pathname }
+        ]
+      });
+    }
+
+    if (Array.isArray(window.ECS_FAQ) && window.ECS_FAQ.length) {
+      emit({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        mainEntity: window.ECS_FAQ.map(function (it) {
+          return { "@type": "Question", name: strip(it.q),
+                   acceptedAnswer: { "@type": "Answer", text: strip(it.a) } };
+        })
+      });
+    }
+  }
+
   window.ECS.ui = {
-    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initTabs(); initAccordions(); initInsurers(); }
+    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initTabs(); initAccordions(); initInsurers(); initSEO(); }
   };
 })();

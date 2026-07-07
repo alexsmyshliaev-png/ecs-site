@@ -8,6 +8,8 @@
 ### Added
 - `frontend/robots.txt` — индексация разрешена, `Disallow: /404.html`, ссылка на sitemap.
 - `frontend/sitemap.xml` — 9 страниц с приоритетами (боевой домен `edincenter.ru`).
+- `frontend/assets/js/config.js` — `siteUrl: "https://edincenter.ru"` (единый источник домена для JSON-LD).
+- `frontend/assets/js/ui.js` — `initSEO()`: инъекция JSON-LD — `InsuranceAgency` на главной (из config: телефон/email/адрес/geo/sameAs), `FAQPage` из `ECS_FAQ`, `BreadcrumbList` на подстраницах.
 
 ## [2026-07-07] — Этап 2: публикация (безопасность, юридика)
 

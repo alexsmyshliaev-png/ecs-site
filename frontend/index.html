@@ -385,27 +385,8 @@
       <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
       <h3>Оставить заявку</h3>
       <p>Оставьте контакты — перезвоним в течение 15 минут в рабочее время.</p>
-      <form class="js-lead-form" data-form="modal" data-product="Главная">
-        <div class="lead__grid">
-          <div class="field field--wide"><label for="lm-name">Имя</label><input id="lm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
-          <div class="field field--wide"><label for="lm-phone">Телефон</label><input id="lm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
-          <div class="field field--wide"><label for="lm-comment">Комментарий</label><textarea id="lm-comment" name="comment" placeholder="Например: нужен полис на Kia Rio 2021"></textarea></div>
-            <div class="field field--wide"><label>Связаться в мессенджере (необязательно)</label>
-              <div class="msgr-field">
-                <select name="messenger" aria-label="Мессенджер"><option value="">Не нужно</option><option>Telegram</option><option>WhatsApp</option><option>MAX</option></select>
-                <input name="messenger_user" type="text" placeholder="@username или ник">
-              </div>
-            </div>
-        </div>
-        <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
-        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
-        <button class="btn btn--primary lead__submit" type="submit">Отправить</button>
-      </form>
-      <div class="lead__done">
-        <div class="ok-ic">✓</div>
-        <h3>Заявка отправлена!</h3>
-        <p style="color:var(--muted);margin-top:10px">Менеджер свяжется с вами в ближайшее время.</p>
-      </div>
+      <!-- CRM-форма Битрикс24 (config.b24forms.lead). Пока не настроена — фолбэк с телефоном. -->
+      <div class="b24form" data-b24form="lead" data-product="Главная" data-form-slug="modal"></div>
     </div>
   </div>
 </div>
@@ -418,38 +399,10 @@
       <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
       <h3>Сравним цену — найдём дешевле</h3>
       <p>Вам уже посчитали полис у агента, в страховой, в банке или на страховом агрегаторе? Отправьте вид страховки и сумму — сравним и постараемся найти выгоднее. Бесплатно и ни к чему не обязывает.</p>
-      <form class="js-lead-form" data-form="cheaper" data-product="Найдём дешевле">
-        <div class="lead__grid">
-          <div class="field field--wide"><label for="cm-type">Вид страхования</label>
-            <select id="cm-type" name="insurance">
-              <option>ОСАГО</option>
-              <option>КАСКО</option>
-              <option>Недвижимость / ипотека</option>
-              <option>Путешествия</option>
-              <option>Бизнес</option>
-              <option>Другое</option>
-            </select>
-          </div>
-          <div class="field field--wide"><label for="cm-price">Предложенная сумма, ₽</label><input id="cm-price" name="price" type="text" placeholder="Например: 12 800"></div>
-          <div class="field field--wide"><label for="cm-name">Имя</label><input id="cm-name" name="name" type="text" placeholder="Как к вам обращаться" required></div>
-          <div class="field field--wide"><label for="cm-phone">Телефон</label><input id="cm-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
-          <div class="field field--wide"><label for="cm-comment">Комментарий</label><textarea id="cm-comment" name="comment" placeholder="Кто посчитал и на каких условиях. Сам расчёт можно прислать в мессенджер."></textarea></div>
-            <div class="field field--wide"><label>Связаться в мессенджере (необязательно)</label>
-              <div class="msgr-field">
-                <select name="messenger" aria-label="Мессенджер"><option value="">Не нужно</option><option>Telegram</option><option>WhatsApp</option><option>MAX</option></select>
-                <input name="messenger_user" type="text" placeholder="@username или ник">
-              </div>
-            </div>
-        </div>
-        <label class="lead__agree"><input type="checkbox" name="agree" required> Соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></label>
-        <label class="lead__agree lead__agree--ad"><input type="checkbox" name="ad_consent"> Согласен на получение рекламной информации и специальных предложений</label>
-        <button class="btn btn--primary lead__submit" type="submit">Сравнить цену</button>
-      </form>
-      <div class="lead__done">
-        <div class="ok-ic">✓</div>
-        <h3>Заявка отправлена!</h3>
-        <p style="color:var(--muted);margin-top:10px">Сравним с другими страховыми и пришлём, где дешевле.</p>
-      </div>
+      <!-- CRM-форма Битрикс24 (config.b24forms.lead, product «Найдём дешевле»).
+           TODO(1.1): в форме «Заявка» добавить поля «вид страхования» и «предложенная сумма»,
+           либо менеджер уточняет их по product/комментарию. -->
+      <div class="b24form" data-b24form="lead" data-product="Найдём дешевле" data-form-slug="cheaper"></div>
     </div>
   </div>
 </div>

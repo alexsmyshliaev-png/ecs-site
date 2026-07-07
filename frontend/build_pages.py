@@ -46,8 +46,16 @@ def footer_region(text):
 
 
 def modal_product(footer_text):
-    """Достаёт data-product модалки заявки из футер-блока (или None)."""
-    m = re.search(r'data-form="modal" data-product="([^"]*)"', footer_text)
+    """Достаёт data-product модалки заявки из футер-блока (или None).
+
+    Модалка теперь — слот CRM-формы Битрикс24
+    (<div class="b24form" data-b24form="lead" data-product="X" data-form-slug="modal">).
+    Старый формат (<form data-form="modal" data-product="X">) поддержан как fallback,
+    чтобы первый прогон после миграции корректно перенёс product каждой страницы."""
+    m = re.search(r'data-b24form="lead" data-product="([^"]*)" data-form-slug="modal"', footer_text)
+    if m:
+        return m.group(1)
+    m = re.search(r'data-form="modal" data-product="([^"]*)"', footer_text)  # до миграции
     return m.group(1) if m else None
 
 
@@ -80,8 +88,8 @@ for fname in PAGES:
     product = modal_product(old_footer)
     f = footer_src
     if product is not None and TMPL_PRODUCT is not None:
-        f = footer_src.replace('data-form="modal" data-product="%s"' % TMPL_PRODUCT,
-                               'data-form="modal" data-product="%s"' % product, 1)
+        f = footer_src.replace('data-product="%s" data-form-slug="modal"' % TMPL_PRODUCT,
+                               'data-product="%s" data-form-slug="modal"' % product, 1)
 
     # точечная замена общих блоков, контент <main> не трогаем
     page = page.replace(region(page, '<header class="header"', "</header>"), h, 1)

@@ -19,6 +19,12 @@
 - `frontend/assets/js/leads.js` — модуль интеграции с CRM-формами Битрикс24: монтирует embed в слоты `[data-b24form]` из `config.b24forms`; по `b24:form:init` заполняет скрытые поля (`product`, `form_slug`, `page_url`, `utm_first`, `referrer_first`, `ym_client_id`, `plate`); транслирует события формы в `ecsTrack` (`lead_form_open`, `lead_success`); при ненастроенной/незагрузившейся форме (таймаут 5 с) показывает фолбэк «позвоните/напишите» + `ecsTrack("b24form_failed")`.
 - `frontend/assets/css/components.css` — стили слота `.b24form` и блока-фолбэка `.b24form__fallback`.
 
+### Changed (HTML, все 9 страниц)
+- Самописные формы заявок заменены на слоты CRM-форм Битрикс24 `<div class="b24form" data-b24form="lead" data-product="…" data-form-slug="…">`:
+  - модалки `#leadModal` (product сохранён по страницам) и `#cheaperModal` (product «Найдём дешевле») — правка в `index.html`, разнесена `build_pages.py`;
+  - inline-формы в теле страниц: `kasko.html` (kasko-page), `business.html` (business-brief), `property.html` (property-page). Обёртки секций (`.lead`, заголовки, описания) сохранены.
+- `frontend/build_pages.py` — `modal_product()` и подстановка product обновлены под новый слот (`data-b24form="lead" … data-form-slug="modal"`); старый формат `data-form="modal"` оставлен как fallback для первого прогона миграции.
+
 ## [2026-06-11] — Hero: калькулятор/инфо справа на всех страницах, polis812
 ### Added
 - `frontend/travel.html` — калькулятор путешествий polis812 (`https://polis812.ru/wl/loader.js`, партнёр 118044) встроен в правую колонку hero вместо калькулятора Финуслуг

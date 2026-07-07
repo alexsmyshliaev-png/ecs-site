@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Страница не найдена — ЕЦС</title>
+  <!-- Пути root-абсолютные (/assets/…): 404 отдаётся с произвольного URL. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <style>
+    .e404 { min-height: 78vh; display: grid; place-items: center; text-align: center; padding: 40px 20px; }
+    .e404__code { font-size: clamp(88px, 22vw, 200px); font-weight: 900; line-height: .9; letter-spacing: -.04em; color: var(--red); }
+    .e404 h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 800; letter-spacing: -.02em; margin: 10px 0 12px; }
+    .e404 p { color: var(--muted); font-size: 17px; max-width: 520px; margin: 0 auto 26px; }
+    .e404__links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  </style>
+</head>
+<body data-product="Главная">
+
+<header class="header" id="header">
+  <div class="wrap header__row">
+    <a class="brand" href="/index.html" aria-label="ЕЦС — Единый центр страхования"><img class="brand__logo brand__logo--light" src="/assets/img/logo-ecs-horizontal.svg" alt="ЕЦС — Единый центр страхования" width="160" height="56"><img class="brand__logo brand__logo--dark" src="/assets/img/logo-ecs-horizontal-white.svg" alt="ЕЦС — Единый центр страхования" width="160" height="56"></a>
+    <div class="header__cta">
+      <a class="header__phone" href="tel:+78001234567">8 800 123-45-67<span>Ежедневно 9:00–21:00</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="e404">
+  <div class="wrap">
+    <div class="e404__code">404</div>
+    <h1>Такой страницы нет</h1>
+    <p>Возможно, ссылка устарела или в адресе опечатка. Вернитесь на главную или выберите нужный вид страхования.</p>
+    <div class="e404__links">
+      <a class="btn btn--primary" href="/index.html">На главную</a>
+      <a class="btn btn--ghost" href="/osago.html">ОСАГО</a>
+      <a class="btn btn--ghost" href="/kasko.html">КАСКО</a>
+      <a class="btn btn--ghost" href="/property.html">Недвижимость</a>
+      <a class="btn btn--ghost" href="/insurers.html">Страховые компании</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

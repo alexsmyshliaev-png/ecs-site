@@ -5,12 +5,12 @@
 # Editor / agent
 .claude/
 
-# Python backend
+# Python backend (архивирован в archive/fastapi-backend/, ADR 2026-07-07)
 __pycache__/
 *.pyc
-backend/.env
-backend/*.db
-backend/.venv/
+archive/fastapi-backend/.env
+archive/fastapi-backend/*.db
+archive/fastapi-backend/.venv/
 .venv/
 
 # Сгенерированная «пересылаемая» сборка

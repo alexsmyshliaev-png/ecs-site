@@ -25,6 +25,18 @@
   - inline-формы в теле страниц: `kasko.html` (kasko-page), `business.html` (business-brief), `property.html` (property-page). Обёртки секций (`.lead`, заголовки, описания) сохранены.
 - `frontend/build_pages.py` — `modal_product()` и подстановка product обновлены под новый слот (`data-b24form="lead" … data-form-slug="modal"`); старый формат `data-form="modal"` оставлен как fallback для первого прогона миграции.
 
+### Removed / Moved (вывод бэкенда из эксплуатации)
+- `backend/` → `archive/fastapi-backend/` (история сохранена через `git mv`; добавлен README с обоснованием и критериями возврата). Удалены регенерируемые `.venv/`, `.pytest_cache/`, `ecs.db`.
+- `docs/api/` → `archive/fastapi-backend/api-docs/` (документация бэкенда).
+- `.claude/launch.json` — удалена конфигурация запуска `ecs-api` (осталась только `ecs-site`). Файл под `.claude/` (gitignored) — правка локальная.
+- `.gitignore` — пути `backend/*` заменены на `archive/fastapi-backend/*`.
+- `frontend/assets/img/` — удалены неиспользуемые `car.png`, `logo-ecs-horizontal.png`, папка «Background line art» (отдельный коммит).
+
+### Changed (docs под новую архитектуру)
+- `docs/architecture.md` — стек/потоки лида и аналитики переписаны под CRM-формы; добавлен ADR 2026-07-07 (отменяет ADR «лид сначала в свою БД»).
+- `docs/setup.md` — убраны разделы про бэкенд/тесты/`.env`; раздел Битрикс24 переориентирован с вебхука на CRM-формы; в «что заменить» добавлен `b24forms`.
+- `docs/frontend/components.md` — таблица модулей и соглашения разметки под слоты `[data-b24form]`.
+
 ## [2026-06-11] — Hero: калькулятор/инфо справа на всех страницах, polis812
 ### Added
 - `frontend/travel.html` — калькулятор путешествий polis812 (`https://polis812.ru/wl/loader.js`, партнёр 118044) встроен в правую колонку hero вместо калькулятора Финуслуг

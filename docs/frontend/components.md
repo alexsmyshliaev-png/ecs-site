@@ -19,16 +19,18 @@
 |---|---|---|
 | `config.js` | Все настройки интеграций | `window.ECS_CONFIG` |
 | `utm.js` | UTM first/last touch, прокидка в ссылки | `ECS.utm.get()`, `ECS.utm.init()` |
-| `analytics.js` | dataLayer + Метрика + POST /api/events | `ecsTrack(event, params)` |
+| `analytics.js` | dataLayer (GTM) + Яндекс.Метрика | `ecsTrack(event, params)` |
 | `bitrix.js` | Загрузка виджета Битрикс24 | `ECS.bitrix.init()` |
-| `leads.js` | Отправка лидов (API → вебхук → localStorage), формы, маска телефона | `ecsLead(data)`, формы `form.js-lead-form` |
+| `leads.js` | Монтаж CRM-форм Битрикс24 в слоты `[data-b24form]`, скрытые поля (b24:form:init), фолбэк | `ECS.leads.init()`, `ECS.leads.mount(slot)` |
 | `ui.js` | Шапка, мобильное меню, reveal, FAQ, модалка, fab | `ECS.ui.init()`, `ECS.ui.openModal()` |
 | `main.js` | Только инициализация модулей | — |
 
 ## Соглашения разметки
 
 - `data-track="имя_цели"` — клик по элементу уходит в аналитику.
-- `data-modal="lead"` + `data-product="X"` — кнопка открывает модалку заявки.
-- `form.js-lead-form` + `data-form` + `data-product` — форма-лид; поле `phone`
-  получает маску и валидацию автоматически; чекбокс `agree` не отправляется.
+- `data-modal="lead"` + `data-product="X"` — кнопка открывает модалку заявки
+  (CRM-форма монтируется лениво при открытии).
+- `<div class="b24form" data-b24form="lead|office" data-product="X" data-form-slug="Y">` —
+  слот CRM-формы Битрикс24; `leads.js` монтирует embed из `config.b24forms` и наполняет
+  скрытые поля. Форма не настроена/не загрузилась → фолбэк «позвоните/напишите».
 - `window.ECS_FAQ` — данные FAQ страницы.

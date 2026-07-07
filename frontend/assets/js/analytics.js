@@ -1,7 +1,9 @@
 /* ============================================================
    ЕЦС · analytics.js — единая точка аналитики.
-   ecsTrack() шлёт событие в dataLayer (GA4/GTM), Яндекс.Метрику
-   (reachGoal) и на наш бэкенд (/api/events), если он настроен.
+   ecsTrack() шлёт событие в dataLayer (GA4/GTM) и Яндекс.Метрику
+   (reachGoal). Собственного бэкенда событий нет — см. ADR
+   2026-07-07 (docs/architecture.md): аналитика живёт в Метрике,
+   прочие теги подключаются через GTM.
    ============================================================ */
 (function () {
   "use strict";
@@ -17,29 +19,7 @@
     if (CFG.yandexMetrikaId && typeof window.ym === "function") {
       window.ym(CFG.yandexMetrikaId, "reachGoal", event, params);
     }
-    sendToBackend(event, params);
     if (window.console && console.debug) console.debug("[ecsTrack]", event, params);
-  }
-
-  // Серверная аналитика: копим события у себя, чтобы строить свои отчёты
-  function sendToBackend(event, params) {
-    if (!CFG.apiUrl) return;
-    var utm = window.ECS.utm ? window.ECS.utm.get() : {};
-    var payload = JSON.stringify({
-      event: event,
-      params: params,
-      page: location.pathname,
-      referrer: document.referrer,
-      utm_last: utm.last || null,
-      ts: new Date().toISOString()
-    });
-    try {
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(CFG.apiUrl.replace(/\/$/, "") + "/api/events", new Blob([payload], { type: "application/json" }));
-      } else {
-        fetch(CFG.apiUrl.replace(/\/$/, "") + "/api/events", { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true });
-      }
-    } catch (e) { /* аналитика не должна ломать сайт */ }
   }
 
   function initMetrika() {

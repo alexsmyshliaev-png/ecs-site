@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [2026-07-07] — Этап 1: миграция заявок на CRM-формы Битрикс24, вывод бэкенда
+> Основание: ADR 2026-07-07 (docs/architecture.md) + docs/AUDIT-2026-07-07.md.
+> Заявки принимаются CRM-формами Битрикс24 (виджет), собственный FastAPI-бэкенд
+> выводится из эксплуатации. Ветка `feature/crm-forms-migration`.
+
+### Changed
+- `frontend/assets/js/analytics.js` — убрана серверная аналитика: удалена `sendToBackend()` и отправка на `/api/events`. События идут только в `dataLayer` (GTM) и Яндекс.Метрику (`reachGoal`).
+
 ## [2026-06-11] — Hero: калькулятор/инфо справа на всех страницах, polis812
 ### Added
 - `frontend/travel.html` — калькулятор путешествий polis812 (`https://polis812.ru/wl/loader.js`, партнёр 118044) встроен в правую колонку hero вместо калькулятора Финуслуг

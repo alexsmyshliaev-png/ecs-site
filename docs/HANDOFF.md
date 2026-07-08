@@ -16,12 +16,33 @@
 - **D5 (Eleventy)** — ⏸ сборка готова и проверена (ветка `feature/eleventy`, локально), **выкат отложен**: нужен корень домена `edincenter.ru` (сейчас Pages — project-страница `…github.io/ecs-site/`, где root-абсолютные пути и чистые URL не работают). Разблокировать — при подключении домена/CF Pages.
 - Разделы 2–4 ниже — историческая постановка задач A–C (оставлены для контекста).
 
+### Деплой (на 2026-07-08)
+
+- **Этапы 1–5 — LIVE.** `feature/crm-forms-migration` влит в `main` (fast-forward) и
+  запушен; GitHub Actions (`.github/workflows/pages.yml`) собрал и выложил.
+  Боевой URL сейчас — **`https://alexsmyshliaev-png.github.io/ecs-site/`**
+  (project-страница под подпутём `/ecs-site/`, кастомного домена ещё НЕТ; `cname:null`).
+  Pages публикует папку `frontend/` как есть (относительные пути + `.html` — под подпутём работают).
+- **Node установлен** (`brew install node`, `/opt/homebrew/bin`). Сборка Eleventy:
+  `npx @11ty/eleventy` (или `--serve`). Артефакты `node_modules/`, `_site/` — локальные,
+  в git не идут (см. `.gitignore` на ветке `feature/eleventy`).
+- **Чтобы выкатить Eleventy (D5), нужно сначала дать сайту корень домена:**
+  1. Подключить `edincenter.ru`: либо кастомный домен на GitHub Pages
+     (файл `frontend/CNAME` = `edincenter.ru` + DNS-запись у регистратора на Pages),
+     либо **Cloudflare Pages / Netlify** (полная поддержка `_headers`+`_redirects`).
+  2. Переписать `.github/workflows/pages.yml` на сборку Eleventy
+     (`npm ci && npx @11ty/eleventy`, публиковать `_site` вместо `frontend`).
+  3. Влить `feature/eleventy` в `main` и запушить.
+  До п.1 Eleventy НЕ выкатывать — root-абсолютные пути и чистые URL сломаются под `/ecs-site/`.
+- **Заблокировано владельцем (сделает сам):** DNS/подключение домена; выбор хостинга
+  (Pages с доменом vs Cloudflare/Netlify). Подробнее — память сессии + `docs/ENVIRONMENT.md`.
+
 ---
 
 ## 1. Контекст (прочитай, прежде чем трогать код)
 
 - Сайт ЕЦС (страховой агент, СПб) — **чистая статика**: 9 HTML-страниц в `frontend/`,
-  ванильный JS (7 модулей в `frontend/assets/js/`), 3 CSS. Боевой домен — `edincenter.ru`.
+  ванильный JS (8 модулей в `frontend/assets/js/`, включая `calc.js`), 3 CSS. Боевой домен — `edincenter.ru`.
 - **Бэкенда НЕТ** (ADR 2026-07-07 в `docs/architecture.md`). Старый FastAPI лежит
   в `archive/fastapi-backend/` — НЕ трогать, НЕ подключать.
 - Заявки принимают **CRM-формы Битрикс24**: слоты `<div class="b24form" data-b24form="lead|office"

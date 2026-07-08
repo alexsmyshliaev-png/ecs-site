@@ -2,8 +2,9 @@
 .DS_Store
 **/.DS_Store
 
-# Editor / agent
-.claude/
+# Editor / agent — конфигурацию проекта (launch.json, settings.json) версионируем,
+# локальную/секретную часть — нет
+.claude/settings.local.json
 
 # Python backend (архивирован в archive/fastapi-backend/, ADR 2026-07-07)
 __pycache__/

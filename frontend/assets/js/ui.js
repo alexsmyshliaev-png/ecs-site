@@ -138,6 +138,35 @@
     });
   }
 
+  /* ---- телефон/email из config (единый источник для коллтрекинга) ----
+     Помечаем основные ссылки классом .js-phone / .js-email. href берём из config
+     всегда; видимый текст заменяем, только если это сам номер/адрес (кнопку
+     «Позвонить» и вложенный <span> с часами не трогаем). Захардкоженные значения
+     в разметке остаются fallback'ом для no-JS и SEO. Местный номер офиса — свой,
+     класс .js-phone ему не ставим. */
+  function looksLikePhone(s) {
+    return (s.match(/\d/g) || []).length >= 7 && !/[A-Za-zА-Яа-яЁё]/.test(s);
+  }
+  function setPhoneText(a, phone) {
+    for (var i = 0; i < a.childNodes.length; i++) {
+      var n = a.childNodes[i];
+      if (n.nodeType === 3 && n.nodeValue.trim() && looksLikePhone(n.nodeValue)) {
+        n.nodeValue = phone; return;
+      }
+    }
+  }
+  function initPhones() {
+    document.querySelectorAll("a.js-phone").forEach(function (a) {
+      if (CFG.phoneHref) a.setAttribute("href", "tel:" + CFG.phoneHref);
+      if (CFG.phone) setPhoneText(a, CFG.phone);
+    });
+    document.querySelectorAll("a.js-email").forEach(function (a) {
+      if (!CFG.email) return;
+      a.setAttribute("href", "mailto:" + CFG.email);
+      if (a.children.length === 0 && a.textContent.indexOf("@") > -1) a.textContent = CFG.email;
+    });
+  }
+
   /* ---- кнопки, раскрывающие скрытый блок (data-toggle="id") ---- */
   function initToggles() {
     document.querySelectorAll("[data-toggle]").forEach(function (btn) {
@@ -301,6 +330,6 @@
   }
 
   window.ECS.ui = {
-    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initToggles(); initTabs(); initAccordions(); initInsurers(); initSEO(); }
+    init: function () { initHeader(); initReveal(); initFAQ(); initModal(); initFab(); initContacts(); initPhones(); initToggles(); initTabs(); initAccordions(); initInsurers(); initSEO(); }
   };
 })();

@@ -24,6 +24,7 @@
   <meta name="theme-color" content="#e60023">
   <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://agents.finuslugi.ru" crossorigin><!-- ипотечный калькулятор -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -273,28 +274,12 @@
         <button class="modal__close" type="button" aria-label="Закрыть">✕</button>
         <h3>Калькулятор ипотечного страхования</h3>
         <p>Рассчитайте полис онлайн на платформе Финуслуги (Московская Биржа) — сравним цены и подберём дешевле, чем в банке.</p>
-        <div id="mortgage-frame-calculator" data-id="2adb9c4c-b217-4f22-ad03-70b1d14055c3" data-adv-p-id="5289dc16e387469434f49f7a2a9b1924" data-erid="2W5zFJnCygd" data-color="#F1F1F3" data-color-hover="#DEDEDF"></div>
+        <!-- Ипотечный калькулятор (Финуслуги) — id в config.calc, монтирует calc.js по клику -->
+        <div data-calc="mortgage"></div>
         <p class="calc-frame__note">Не загрузился? <a href="#" data-modal="lead" data-product="Имущество">Оставьте заявку</a> — подберём вручную.</p>
       </div>
     </div>
   </div>
-  <script>
-  /* Лениво подгружаем виджет ипотечного калькулятора при первом открытии модалки,
-     чтобы он строился уже в видимом контейнере и корректно занимал ширину. */
-  (function () {
-    var trigger = document.querySelector('[data-modal="mortgage"]');
-    if (!trigger) return;
-    var loaded = false;
-    trigger.addEventListener('click', function () {
-      if (loaded) return;
-      loaded = true;
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.src = 'https://agents.finuslugi.ru/assets/js/mortgage-frame-calc.js';
-      document.body.appendChild(s);
-    });
-  })();
-  </script>
 
 </main>
 
@@ -370,6 +355,7 @@
 <script src="assets/js/bitrix.js"></script>
 <script src="assets/js/leads.js"></script>
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/calc.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
   window.ECS_FAQ = [

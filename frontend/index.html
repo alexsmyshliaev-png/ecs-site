@@ -24,6 +24,7 @@
   <meta name="theme-color" content="#e60023">
   <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://finuslugi.ru" crossorigin><!-- калькулятор ОСАГО -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -196,8 +197,8 @@
                 </ul>
               </div>
               <div class="raschet-card__calc">
-                <div id="frame-calculator_wrap" data-id-frame="ce2dab9b-9b5f-4a7d-b1e7-d2442acf96a3" data-adv-p-id="5289dc16e387469434f49f7a2a9b1924"></div>
-                <script type="text/javascript" src="https://finuslugi.ru/osago/partners/main/iframe.bundle.iife.js"></script>
+                <!-- Калькулятор ОСАГО (Финуслуги) — id в config.calc, монтирует calc.js -->
+                <div data-calc="osago-home"></div>
                 <p class="calc-frame__note">Расчёт на платформе Финуслуги. Не загрузился? <a href="#" data-modal="lead" data-product="ОСАГО">Напишите нам</a> — рассчитаем вручную.</p>
               </div>
               <div class="raschet-card__btns">
@@ -443,6 +444,7 @@
 <script src="assets/js/bitrix.js"></script>
 <script src="assets/js/leads.js"></script>
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/calc.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
   // FAQ этой страницы

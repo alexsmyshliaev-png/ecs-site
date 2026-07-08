@@ -62,10 +62,20 @@ window.ECS_CONFIG = {
   yandexMapsApiKey: "",
   officeCoords: [59.93428, 30.335099], // [широта, долгота] — замените на точку офиса
 
-  /* —— Калькуляторы Финуслуг (data-id для каждого продукта) —— */
+  /* —— Калькуляторы страховых партнёров ——
+     Разметка на страницах — только слоты <div data-calc="…"> (см. calc.js);
+     все id/frame-id живут здесь. Не путать frame-id с id партнёра!
+       advPartnerId — общий id партнёра Финуслуг (атрибут data-adv-p-id);
+       osagoHome / osagoPage — РАЗНЫЕ frame-id виджета ОСАГО на главной и osago.html;
+       mortgage — ипотечный виджет Финуслуг (модалка property.html): frame-id + erid
+                  (маркировка рекламы, ст. 18.1 «О рекламе»);
+       travelPartner — id партнёра polis812 (страхование путешествий). */
   calc: {
-    osago:  "5289dc16e387469434f49f7a2a9b1924",
-    travel: "5289dc16e387469434f49f7a2a9b1924" // замените на id калькулятора путешествий
+    advPartnerId:  "5289dc16e387469434f49f7a2a9b1924",
+    osagoHome:     "ce2dab9b-9b5f-4a7d-b1e7-d2442acf96a3",
+    osagoPage:     "d7b09765-d80c-4043-85ec-7cfd0f5d9319",
+    mortgage:      { id: "2adb9c4c-b217-4f22-ad03-70b1d14055c3", erid: "2W5zFJnCygd" },
+    travelPartner: "118044"
   },
 
   /* —— Страховые компании (страница insurers.html) ——

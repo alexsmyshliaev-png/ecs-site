@@ -24,6 +24,7 @@
   <meta name="theme-color" content="#e60023">
   <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://polis812.ru" crossorigin><!-- калькулятор путешествий -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -74,8 +75,8 @@
   <section class="section--tight" id="calc">
     <div class="wrap">
       <div class="calc-frame reveal">
-        <!-- Калькулятор путешествий (polis812) -->
-        <script data-params="" data-white-label="true" data-type="vzr" data-title="Туристическая страховка онлайн" data-subtitle="Лучший способ оценить, сравнить и купить страховку от надежных компаний" data-theme="custom" data-colors="%7B%22primary%22%3A%22%23EB0600%22%2C%22secondary%22%3A%22%237CB1FB%22%2C%22accent%22%3A%22%23326AFF%22%2C%22accentHover%22%3A%22%23326AFF%22%2C%22calculatorBlock1%22%3A%22%23F1F6FB%22%2C%22calculatorBlock2%22%3A%22%23AAE9C4%22%2C%22secondaryLight%22%3A%22%23C5DDFE%22%2C%22accentHoverLight%22%3A%22%2392a5ff%22%2C%22accentActive%22%3A%22%232d5fe4%22%2C%22calculatorBlock%22%3A%22%23F1F6FB%22%2C%22optionColor%22%3A%7B%22name%22%3A%22%D0%A7%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%22%2C%22val%22%3A%22%23303030%22%7D%2C%22backgroundColor%22%3A%22%23F7F8FA%22%7D" data-partner="118044" data-partner-ym-id="118044" type="application/javascript" src="https://polis812.ru/wl/loader.js"></script>
+        <!-- Калькулятор путешествий (polis812) — id в config.calc, монтирует calc.js -->
+        <div data-calc="travel"></div>
         <p class="calc-frame__note">Расчёт и оплата проходят на защищённой платформе партнёра. Полис приходит на email сразу после оплаты.</p>
       </div>
     </div>
@@ -217,6 +218,7 @@
 <script src="assets/js/bitrix.js"></script>
 <script src="assets/js/leads.js"></script>
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/calc.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
   window.ECS_FAQ = [

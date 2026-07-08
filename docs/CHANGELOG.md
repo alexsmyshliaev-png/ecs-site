@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## [2026-07-08] — Этап 3: калькуляторы → единый модуль calc.js
+
+### Added
+- `frontend/assets/js/calc.js` — единый ленивый загрузчик калькуляторов страховых партнёров. Разметка страниц сведена к слотам `<div data-calc="osago-home|osago|travel|mortgage">`; контейнер и скрипт провайдера строятся из `config.calc`. Встроенные виджеты монтируются по `IntersectionObserver` (`rootMargin: 200px`), ипотечный (модалка `property.html`) — по клику на `[data-modal="mortgage"]`. Нет `iframe` за 8 с → фолбэк «рассчитаем вручную» с кнопкой `data-modal="lead"` + `ecsTrack("calc_widget_failed", {calc})`; при монтаже — `ecsTrack("calc_open", {calc})`. Провайдеры: ОСАГО и ипотека — Финуслуги, путешествия — polis812. TODO: `calc_complete` требует формата postMessage от партнёров (уточнить).
+
+### Changed
+- `frontend/assets/js/config.js` — секция `calc` переписана в честную структуру: `advPartnerId` (общий id партнёра Финуслуг), раздельные frame-id `osagoHome`/`osagoPage`, `mortgage {id, erid}`, `travelPartner`. Прежние `calc.osago`/`calc.travel` хранили id партнёра, а не frame-id, и не читались ни одним модулем.
+- `frontend/assets/js/main.js` — после `ui.init()` вызывается `window.ECS.calc.init()` (защищённо — модуль есть только на 4 страницах).
+- `index.html`, `osago.html`, `travel.html`, `property.html` — синхронные `<script src>` калькуляторов Финуслуг/polis812 и inline-загрузчик ипотеки (property.html) удалены; вместо них слот `data-calc` + подключение `calc.js` перед `main.js`; в `<head>` добавлен `preconnect` к домену провайдера (finuslugi.ru / polis812.ru / agents.finuslugi.ru). Скрипты провайдеров больше не блокируют LCP и грузятся лениво.
+
+### Docs
+- `docs/frontend/components.md` — добавлен модуль `calc.js` и соглашение разметки `data-calc`.
+
 ## [2026-07-07] — Этап 3: SEO и производительность
 > Боевой домен — `edincenter.ru` (из privacy.html).
 

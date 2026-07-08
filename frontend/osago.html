@@ -24,6 +24,7 @@
   <meta name="theme-color" content="#e60023">
   <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://finuslugi.ru" crossorigin><!-- калькулятор ОСАГО -->
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -70,10 +71,9 @@
         <p class="hero__lead">Найдём дешевле или сделаем скидку. Подберём лучший вариант среди ведущих страховых компаний.</p>
       </div>
 
-      <!-- Калькулятор ОСАГО (Финуслуги) -->
+      <!-- Калькулятор ОСАГО (Финуслуги) — id в config.calc, монтирует calc.js -->
       <div class="calc-frame" id="calc">
-        <div id="frame-calculator_wrap" data-id-frame="d7b09765-d80c-4043-85ec-7cfd0f5d9319" data-adv-p-id="5289dc16e387469434f49f7a2a9b1924"></div>
-        <script type="text/javascript" src="https://finuslugi.ru/osago/partners/main/iframe.bundle.iife.js"></script>
+        <div data-calc="osago"></div>
         <p class="calc-frame__note">Расчёт проходит на платформе Финуслуги (Московская Биржа). Сравните цены страховых и оформите полис онлайн.</p>
       </div>
 
@@ -366,6 +366,7 @@
 <script src="assets/js/bitrix.js"></script>
 <script src="assets/js/leads.js"></script>
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/calc.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
   // FAQ этой страницы

@@ -11,6 +11,7 @@
     window.ECS.bitrix.init();
     window.ECS.leads.init();
     window.ECS.ui.init();
+    if (window.ECS.calc) window.ECS.calc.init(); // calc.js подключён только на страницах с калькуляторами
     window.ecsTrack("page_view", { title: document.title });
   });
 })();

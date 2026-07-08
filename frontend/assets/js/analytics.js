@@ -35,8 +35,8 @@
     try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
   }
   function needsConsentUI() {
-    // гейтить нечего, если аналитика не настроена
-    return !!(CFG.yandexMetrikaId || CFG.ga4Id);
+    // гейтить нечего, если аналитика не настроена (Метрика/GA4/GTM все за согласием)
+    return !!(CFG.yandexMetrikaId || CFG.ga4Id || CFG.gtmId);
   }
 
   function initMetrika() {
@@ -62,12 +62,24 @@
     window.gtag("config", CFG.ga4Id);
   }
 
+  // GTM грузим ТОЛЬКО после согласия (как и Метрику). GTM подхватывает уже накопленный
+  // dataLayer, поэтому ecsTrack-события, отправленные до его загрузки, не теряются.
+  // <noscript>-iframe не нужен: без JS не проходит и гейт согласия, теги не сработают.
+  function initGTM() {
+    if (!CFG.gtmId) return;
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var s = document.createElement("script");
+    s.async = true; s.src = "https://www.googletagmanager.com/gtm.js?id=" + CFG.gtmId;
+    document.head.appendChild(s);
+  }
+
   var started = false;
   function startTracking() {
     if (started) return;
     started = true;
     initMetrika();
     initGA4();
+    initGTM();
   }
 
   /* ---- баннер согласия ---- */

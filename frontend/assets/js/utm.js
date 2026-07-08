@@ -8,10 +8,14 @@
   window.ECS = window.ECS || {};
 
   var KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  // yclid/gclid — идентификаторы клика Яндекс.Директа/Google Ads: нужны для офлайн-конверсий
+  // (выгрузка сделок из CRM обратно в рекламный кабинет). Сохраняем в first/last touch.
+  var CLICK_IDS = ["yclid", "gclid"];
+  var TRACKED = KEYS.concat(CLICK_IDS);
 
   function parse() {
     var p = new URLSearchParams(location.search), out = {}, found = false;
-    KEYS.forEach(function (k) {
+    TRACKED.forEach(function (k) {
       if (p.get(k)) { out[k] = p.get(k); found = true; }
     });
     return found ? out : null;
@@ -41,15 +45,17 @@
     } catch (e) { return { last: parse(), first: null, referrer: document.referrer }; }
   }
 
-  // Пока пользователь ходит по сайту с UTM в адресе — сохраняем метки в ссылках,
-  // чтобы Метрика корректно атрибуцировала весь визит.
+  // Пока пользователь ходит по сайту с UTM в адресе — переносим метки во внутренние
+  // ссылки, чтобы Метрика корректно атрибуцировала весь визит. Через URL/searchParams:
+  // не дублируем уже стоящие параметры и не ломаем якорь (#…), в отличие от «href += ?qs».
   function propagate() {
     var utm = parse();
     if (!utm) return;
-    var qs = new URLSearchParams(utm).toString();
     document.querySelectorAll('a[href$=".html"], a[href="/"], a[href^="index"]').forEach(function (a) {
       if (a.host !== location.host && a.getAttribute("href").indexOf("http") === 0) return;
-      a.href += (a.href.indexOf("?") > -1 ? "&" : "?") + qs;
+      var u = new URL(a.href, location.origin);
+      KEYS.forEach(function (k) { if (utm[k]) u.searchParams.set(k, utm[k]); });
+      a.href = u.toString();
     });
   }
 

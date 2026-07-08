@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [2026-07-08] — Этап 4: аналитика и маркетинг (код)
+
+### Fixed
+- `frontend/assets/js/utm.js` — `propagate()` переписан через `URL`/`searchParams.set()`: метки больше не дублируются при повторной прокидке и не ломают якорь (`#…`) во внутренних ссылках (был баг `a.href += "?"+qs`).
+
+### Added
+- `frontend/assets/js/utm.js` — в first/last touch дополнительно сохраняются `yclid` и `gclid` (идентификаторы клика Директа/Google Ads для офлайн-конверсий из CRM). `parse()` теперь собирает и utm-, и click-id-параметры.
+- `frontend/assets/js/config.js` — `gtmId: ""` (контейнер Google Tag Manager). Правило: Метрика — в коде, все прочие теги — через GTM.
+- `frontend/assets/js/analytics.js` — `initGTM()` в `startTracking()`: стандартный загрузчик `gtm.js`, грузится **только после согласия** (как Метрика/GA4), подхватывает уже накопленный `dataLayer`. `needsConsentUI()` учитывает `gtmId` (баннер согласия показывается и когда настроен только GTM). Домен `www.googletagmanager.com` уже в CSP.
+- `frontend/assets/js/leads.js` — событие `form_start` (`ecsTrack`): первый клик/фокус внутри слота `[data-b24form]`, одноразово на слот — микро-конверсия «начал заполнять» до отправки.
+
 ## [2026-07-08] — Этап 3: калькуляторы → единый модуль calc.js
 
 ### Added

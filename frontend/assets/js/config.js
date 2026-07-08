@@ -56,6 +56,10 @@ window.ECS_CONFIG = {
   yandexMetrikaId: "",
   // Google Analytics 4 (опционально), напр. "G-XXXXXXX"
   ga4Id: "",
+  // Google Tag Manager: контейнер, напр. "GTM-XXXXXXX". Правило проекта:
+  // Метрика — в коде (analytics.js), все прочие теги (пиксели VK/MyTarget,
+  // ретаргетинг, коллтрекинг) — только через GTM. Пусто = GTM не грузится.
+  gtmId: "",
 
   /* —— Яндекс.Карты (страница «Офис») —— */
   // API-ключ: https://developer.tech.yandex.ru/ → JavaScript API и Геокодер

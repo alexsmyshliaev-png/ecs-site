@@ -121,8 +121,26 @@
     });
   }
 
+  /* ---- form_start: первое взаимодействие пользователя со слотом формы ----
+     Одноразово на слот — микро-конверсия «начал заполнять» (до отправки).
+     Слушаем в фазе перехвата: клик/фокус во встроенной форме доходит до нас,
+     пока форма рендерится в тот же DOM (не iframe). */
+  function bindFormStart() {
+    function onFirst(e) {
+      var slot = e.target && e.target.closest ? e.target.closest("[data-b24form]") : null;
+      if (!slot || slot.getAttribute("data-form-started")) return;
+      slot.setAttribute("data-form-started", "1");
+      window.ecsTrack && window.ecsTrack("form_start", {
+        form: slot.getAttribute("data-form-slug") || slot.getAttribute("data-b24form") || ""
+      });
+    }
+    document.addEventListener("focusin", onFirst, true);
+    document.addEventListener("click", onFirst, true);
+  }
+
   function init() {
     bindFormEvents();
+    bindFormStart();
     // немодальные слоты монтируем сразу; модальные — лениво при открытии (ui.js)
     document.querySelectorAll("[data-b24form]").forEach(function (slot) {
       if (!slot.closest(".modal")) mount(slot);
